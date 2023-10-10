@@ -4,3 +4,140 @@
 // 
 
 // Add extra styles here
+
+
+
+// DAQI colours
+
+$daqi-colour-1: mix(govuk-colour("light-green"), govuk-colour("white"), 75%);
+$daqi-colour-2: mix(govuk-colour("light-green"), govuk-colour("green"), 50%);
+$daqi-colour-3: govuk-colour("green");
+$daqi-colour-4: govuk-colour("yellow");
+$daqi-colour-5: mix(govuk-colour("yellow"), govuk-colour("orange"), 50%);
+$daqi-colour-6: govuk-colour("orange");
+$daqi-colour-7: govuk-colour("red");
+$daqi-colour-8: govuk-colour("light-pink");
+$daqi-colour-9: govuk-colour("pink");
+$daqi-colour-10: govuk-colour("purple");
+
+// Table
+.app-table--daqi {
+    border-collapse: separate;
+    border: 0;
+}
+
+.app-table--daqi td,
+.app-table--daqi th {
+  border-right: 3px solid govuk-colour("white"); /* Replace 'your-color' with the desired border color */
+}
+  
+.govuk-table__header {
+    @include govuk-font($size: 16, $weight: regular);
+    border: 0;
+    padding: govuk-spacing(2);
+    vertical-align: bottom;
+    text-align: center;
+    width: 10%; 
+}
+
+.govuk-table__cell {
+    @include govuk-font($size: 16, $weight: bold);
+    border: 0;
+}
+
+
+
+.daqi-band {
+    @include govuk-font($size: 14, $weight: regular);
+    border: 0;
+    vertical-align: top;
+    text-align: left;
+    width: 10%;
+}
+  
+  
+  // DAQI
+
+  .daqi-selected {
+    background-color: $daqi-colour-3;
+    color: govuk-colour("white");
+    font-weight: bold; 
+  }
+
+  .daqi-1 {
+    background-color: $daqi-colour-1;
+    color: govuk-colour("white");
+  }
+  
+  .daqi-2 {
+    background-color: $daqi-colour-2;
+    color: govuk-colour("white");
+  }
+  
+  .daqi-3 {
+    background-color: $daqi-colour-3;
+    color: govuk-colour("white");
+  }
+  
+  .daqi-4 {
+    background-color: $daqi-colour-4;
+    color: govuk-colour("black");
+  }
+  
+  .daqi-5 {
+    background-color: $daqi-colour-5;
+    color: govuk-colour("black");
+  }
+  
+  .daqi-6 {
+    background-color: $daqi-colour-6;
+    color: govuk-colour("white");
+  }
+  
+  .daqi-7 {
+    background-color: $daqi-colour-7;
+    color: govuk-colour("white");
+  }
+  
+  .daqi-8 {
+    background-color: $daqi-colour-8;
+    color: govuk-colour("white");
+  }
+  
+  .daqi-9 {
+    background-color: $daqi-colour-9;
+    color: govuk-colour("white");
+  }
+  
+  .daqi-10 {
+    background-color: $daqi-colour-10;
+    color: govuk-colour("white");
+}
+
+.daqi-1,
+.daqi-2,
+.daqi-3,
+.daqi-4,
+.daqi-5,
+.daqi-6,
+.daqi-7,
+.daqi-8,
+.daqi-9,
+.daqi-10 {
+  text-align: center;
+}
+
+
+// Pollutants
+
+.pollutant-value {
+    margin-bottom: govuk-spacing(0);
+  }
+
+// Section
+
+.app-section__heading {
+    border-top: 1px solid govuk-colour("black");
+    margin: 0 0 govuk-spacing(6);
+    padding: govuk-spacing(6) 0 0;
+}

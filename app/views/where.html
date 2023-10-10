@@ -1,0 +1,26 @@
+{% extends "layouts/main.html" %}
+{% set title = "Where do you want to check?" %}
+{% set displayBreadcrumbs = false %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+    <h1 class="govuk-heading-l">{{ title | noOrphans | safe }}</h1>
+    <form action="/location/">
+      {{ appSearch({
+        label: {
+          text: "Enter a location or postcode",
+          classes: "govuk-label--m",
+          isPageHeading: false
+        },
+        hint: {
+          text: "For example, Stockport or SK7 5DP"
+        },
+        id: "q",
+        name: 'q'
+      }) }}
+    </form>
+  </div>
+</div>
+{% endblock %}
+

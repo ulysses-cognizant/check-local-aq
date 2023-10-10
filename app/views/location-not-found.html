@@ -1,0 +1,19 @@
+{% extends "layouts/main.html" %}
+{% set displayBreadcrumbs = false %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+    <h1 class="govuk-heading-xl">We could not find '{{ data['q'] }}'</h1>
+    <p>If you searched for a place in the United Kingdom, you should:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>check the spelling</li>
+      <li>enter a broader location</li>
+      <li>enter a correct postcode</li>
+    </ul>
+    <p><a href="/where">Go back to search a location</a></p>
+  </div>
+</div>
+{% endblock %}
+
