@@ -1,8 +1,4 @@
-# Check local air quality
-
-This repo includes the following design resources:
-
-## Prototype
+# Check local air quality prototype
 
 <https://check-local-aq-c31e075e52e2.herokuapp.com/>\
 Password: `n1tr0g3n`
