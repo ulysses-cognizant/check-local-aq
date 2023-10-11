@@ -1,6 +1,6 @@
 # Check local air quality
 
-To view the prototype view:
+To view the prototype:
 
 <https://check-local-aq-c31e075e52e2.herokuapp.com/>\
 
