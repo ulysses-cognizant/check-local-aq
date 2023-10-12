@@ -8,38 +8,41 @@
 
 // Table
 .app-table--daqi {
-    border-collapse: separate;
-    border: 0;
+  border-collapse: separate;
+  border: 0;
 }
 
-.app-table--daqi td,
-.app-table--daqi th {
-  border-right: 3px solid govuk-colour("white"); /* Replace 'your-color' with the desired border color */
-}
-  
 .govuk-table__header {
-    @include govuk-font($size: 16, $weight: regular);
-    border: 0;
-    padding: govuk-spacing(2);
-    vertical-align: bottom;
-    text-align: center;
-    width: 10%; 
+  @include govuk-font($size: 16, $weight: regular);
+  border: 0;
+  padding: govuk-spacing(2);
+  vertical-align: bottom;
+  text-align: center;
+  width: 10%;
+  border-right: 3px solid white; /* Add a 3px white vertical border to header cells */
 }
 
 .govuk-table__cell {
-    @include govuk-font($size: 16, $weight: bold);
-    border: 0;
+  @include govuk-font($size: 16, $weight: bold);
+  border: 0;
+  border-right: 3px solid white; /* Add a 3px white vertical border to data cells */
 }
 
-
+.govuk-table__caption {
+  font-weight: 700;
+  display: none;
+  text-align: left;
+}
 
 .daqi-band {
-    @include govuk-font($size: 14, $weight: regular);
-    border: 0;
-    vertical-align: top;
-    text-align: left;
-    width: 10%;
+  @include govuk-font($size: 14, $weight: regular);
+  border: 0;
+  vertical-align: top;
+  text-align: left;
+  width: 10%;
+  border-right: 3px solid white; /* Add a 3px white vertical border to cells in .daqi-band */
 }
+
 
 // DAQI colours
 
@@ -228,7 +231,7 @@ $daqi-colour-10: govuk-colour("purple");
 // Section
 
 .app-section__heading {
-    border-top: 1px solid govuk-colour("black");
+    border-top: 2px solid govuk-colour("black");
     margin: 0 0 govuk-spacing(6);
     padding: govuk-spacing(6) 0 0;
 }

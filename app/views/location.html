@@ -18,7 +18,7 @@
         {% endif %}
         {{ title }}
       </h1>
-      <p>The air quality today is <strong>3</strong>, with <strong>low</strong> levels of air pollution.</p>
+      <p class="govuk-body govuk-!-margin-bottom-6">The air quality today is <strong>3</strong>, with <strong>low</strong> levels of air pollution.</p>
       {% include "includes/daqi.html" %}
       <p class="govuk-!-margin-bottom-6">
           The current spell of unsettled weather will continue, helping to keep air pollution levels low across the UK during today.
@@ -90,7 +90,7 @@
     </div>
     <div class="govuk-grid-row">
       {{ appPollutant({
-        href: "#",
+        href: "/particulate-matter2",
         type: "Particles (PM2.5)",
         value: "33",
         unit: "micrograms (μg/&#13221;)",
