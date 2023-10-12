@@ -18,6 +18,7 @@
         {% endif %}
         {{ title }}
       </h1>
+      <p>The air quality today is <strong>3</strong>, with <strong>low</strong> levels of air pollution.</p>
       {% include "includes/daqi.html" %}
       <p class="govuk-!-margin-bottom-6">
           The current spell of unsettled weather will continue, helping to keep air pollution levels low across the UK during today.
@@ -50,7 +51,7 @@
         value: "65",
         unit: "micrograms (μg/&#13221;)",
         limit: "Limit: 120 (μg/&#13221;)",
-        tagClass: 'govuk-tag--green',  
+        tagClass: 'daqi-tag daqi-tag--3  govuk-!-margin-right-1',  
         tagText: 'Low' 
       }) }}
       {{ appPollutant({
@@ -59,7 +60,7 @@
         value: "38",
         unit: "micrograms (μg/&#13221;)",
         limit: "Limit: 200 (μg/&#13221;)",
-        tagClass: 'govuk-tag--green',  
+        tagClass: 'daqi-tag daqi-tag--3  govuk-!-margin-right-1',  
         tagText: 'Low' 
       }) }}
       {{ appPollutant({
@@ -68,7 +69,7 @@
         value: "3",
         unit: "micrograms (μg/&#13221;)",
         limit: "Limit: 350 (μg/&#13221;)",
-        tagClass: 'govuk-tag--green',  
+        tagClass: 'daqi-tag daqi-tag--3  govuk-!-margin-right-1',  
         tagText: 'Low' 
       }) }}
     </div>
@@ -94,7 +95,7 @@
         value: "33",
         unit: "micrograms (μg/&#13221;)",
         limit: "Limit: 50 (μg/&#13221;)",
-        tagClass: 'govuk-tag--yellow',  
+        tagClass: 'daqi-tag daqi-tag--4  govuk-!-margin-right-1',  
         tagText: 'MODERATE' 
       }) }}
       {{ appPollutant({
@@ -103,7 +104,7 @@
         value: "22",
         unit: "micrograms (μg/&#13221;)",
         limit: "Limit: 200 (μg/&#13221;)",
-        tagClass: 'govuk-tag--green',  
+        tagClass: 'daqi-tag daqi-tag--3  govuk-!-margin-right-1',  
         tagText: 'Low' 
       }) }}
     </div>
