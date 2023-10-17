@@ -61,14 +61,12 @@ $daqi-colour-10: govuk-colour("purple");
   // DAQI table
 
   .daqi-selected {
-    background-color: $daqi-colour-3;
-    color: govuk-colour("white");
     font-weight: bold; 
   }
 
   .daqi-1 {
     background-color: $daqi-colour-1;
-    color: govuk-colour("white");
+    color: govuk-colour("black");
   }
   
   .daqi-2 {
@@ -167,6 +165,11 @@ $daqi-colour-10: govuk-colour("purple");
   }
 }
 
+mark {
+  background-color: transparent;
+  font-weight: bold;
+  color: inherit;
+}
 
 .daqi-tag--1 {
   color: govuk-colour("black");
