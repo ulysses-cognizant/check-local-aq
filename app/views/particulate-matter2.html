@@ -1,6 +1,7 @@
 {% extends "layouts/content.html" %}
-{% set caption = "Gases" %}
-{% set title = "Particulate matter (PM 2.5)" %}
+{% set caption = "Particles" %}
+{% set title = "Particulate matter (PM2.5)" %}
+{% from "components/pollutant_table/macro.njk" import appPollutant_table %}
 
 {% set pageHeadingSize = pageHeadingSize or "xl" %}
 
@@ -17,9 +18,9 @@
       <h1 class="govuk-heading-xl">{% if caption %}<span class="govuk-caption-{{ pageHeadingSize }}">{{ caption }}</span>
         {% endif %}
         {{ title | safe }}</h1>
-      <h2 class="govuk-heading-m">Sources of PM 2.5</h2>
+      <h2 class="govuk-heading-m">Sources of PM2.5</h2>
       <p>Particulate matter (PM), are small particles of solids or liquids that are in the air. The particles are only 2.5 micrometres in diameter. For context, the width of a human hair is 50 to 70 micrometres.</p>
-      <p>PM 2.5 particles may include:</p>
+      <p>PM<sub>2.5</sub> particles may include:</p>
       <ul class="govuk-list govuk-list--bullet">
         <li>dust</li>
         <li>soot</li>
@@ -42,7 +43,22 @@
         <li>stroke</li>
         <li>lung cancer</li>
       </ul>
-      <p>There is also evidence that links PM2.5 to low birth weight, diabetes and diseases such as Alzheimer's and Parkinson's.</p>
+      <p class="govuk-body govuk-!-margin-bottom-8">There is also evidence that links PM<sub>2.5</sub> to low birth weight, diabetes and diseases such as Alzheimer's and Parkinson's.</p>
+      {{ appPollutant_table({
+        caption: "PM2.5 levels <p class='govuk-!-margin-top-2'>Based on the running 8-hourly mean.</p>",
+    bands: [
+        { label: 'Low', value: "0 - 11" },
+        { label: 'Low', value: "12 - 23" },
+        { label: 'Low', value: "24 - 35" },
+        { label: 'Moderate', value: "36 - 41" },
+        { label: 'Moderate', value: "42 - 47" },
+        { label: 'Moderate', value: "48 - 53" },
+        { label: 'High', value: "54 - 58" },
+        { label: 'High', value: "59 - 64" },
+        { label: 'High', value: "65 - 70" },
+        { label: 'Very high', value: "71 or more" }
+    ]
+      }) }}
     </div>
   </div>
 {% endblock %}

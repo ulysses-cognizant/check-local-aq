@@ -1,6 +1,7 @@
 {% extends "layouts/content.html" %}
+{% from "components/pollutant_table/macro.njk" import appPollutant_table %}
 {% set caption = "Gases" %}
-{% set title = "Nitrogen dioxide (NO&#8322;)" %}
+{% set title = "Nitrogen dioxide (NO₂)" %}
 
 {% set pageHeadingSize = pageHeadingSize or "xl" %}
 
@@ -33,7 +34,22 @@
         <li>allergies</li>
         <li>symptoms of people with lung or heart conditions</li>
       </ul>
-      <p>Long-term exposure to nitrogen dioxide by children increases their risk of respiratory infection and may lead to poorer lung function in later life.</p>
+      <p class="govuk-body govuk-!-margin-bottom-8">Long-term exposure to nitrogen dioxide by children increases their risk of respiratory infection and may lead to poorer lung function in later life.</p>
+      {{ appPollutant_table({
+        caption: "Nitrogen dioxide levels<p class='govuk-!-margin-top-2'>Based on the hourly mean concentration.</p>",
+    bands: [
+        { label: 'Low', value: "0 - 33" },
+        { label: 'Low', value: "68 - 134" },
+        { label: 'Low', value: "135 - 200" },
+        { label: 'Moderate', value: "201 - 267" },
+        { label: 'Moderate', value: "268 - 334" },
+        { label: 'Moderate', value: "335 - 400" },
+        { label: 'High', value: "401 - 467" },
+        { label: 'High', value: "468 - 534" },
+        { label: 'High', value: "535 - 600" },
+        { label: 'Very high', value: "601 or more" }
+    ]
+      }) }}
     </div>
   </div>
 {% endblock %}

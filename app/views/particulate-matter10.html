@@ -1,0 +1,67 @@
+{% extends "layouts/content.html" %}
+{% set caption = "Particles" %}
+{% set title = "Particulate matter (PM10)" %}
+{% from "components/pollutant_table/macro.njk" import appPollutant_table %}
+
+{% set pageHeadingSize = pageHeadingSize or "xl" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "/location"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">{% if caption %}<span class="govuk-caption-{{ pageHeadingSize }}">{{ caption }}</span>
+        {% endif %}
+        {{ title | safe }}</h1>
+      <h2 class="govuk-heading-m">Sources of PM10</h2>
+      <p>Particulate matter (PM), are small particles of solids or liquids that are in the air. The particles are only 10 micrometres in diameter. For context, the width of a human hair is 50 to 70 micrometres.
+      </p>
+      <p>The main sources of particulate matter are:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>dust from construction sites</li>
+        <li>dust from landfills</li>
+        <li>dust from agriculture</li>
+        <li>wildfires</li>
+        <li>pollen</li>
+        <li>power plants</li>
+        <li>vehicles</li>
+      </ul>
+      <h2 class="govuk-heading-m">Health effects</h2>
+      <p>Short-term health impacts of PM10 can include:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>difficulty breathing</li>
+        <li>coughing</li>
+        <li>eye, nose, and throat irritation</li>
+        <li>chest tightness and pain</li>
+      </ul>
+      <p>Short-term health impacts of PM10 can include:</p>
+      <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-8">
+        <li>lung tissue damage </li>
+        <li>asthma</li>
+        <li>heart failure</li>
+        <li>cancer</li>
+        <li>chronic obstructive pulmonary disease (COPD)</li>
+      </ul>
+      {{ appPollutant_table({
+        caption: "PM10 levels <p class='govuk-!-margin-top-2'>Based on the daily mean concentration for historical data, latest 24 hour running mean for the current day.</p>",
+    bands: [
+        { label: 'Low', value: "0 - 16" },
+        { label: 'Low', value: "17 - 33" },
+        { label: 'Low', value: "34 - 50" },
+        { label: 'Moderate', value: "51 - 58" },
+        { label: 'Moderate', value: "59 - 66" },
+        { label: 'Moderate', value: "67 - 75" },
+        { label: 'High', value: "76 - 83" },
+        { label: 'High', value: "84 - 91" },
+        { label: 'High', value: "92 - 100" },
+        { label: 'Very high', value: "101 or more" }
+    ]
+      }) }}
+    </div>
+  </div>
+{% endblock %}

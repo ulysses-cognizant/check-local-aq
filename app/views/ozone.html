@@ -1,0 +1,68 @@
+{% extends "layouts/content.html" %}
+{% from "components/pollutant_table/macro.njk" import appPollutant_table %}
+{% set caption = "Gases" %}
+{% set title = "Ozone (O₃)" %}
+
+{% set pageHeadingSize = pageHeadingSize or "xl" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "/location"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-6">
+      <h1 class="govuk-heading-xl">{% if caption %}<span class="govuk-caption-{{ pageHeadingSize }}">{{ caption }}</span>
+        {% endif %}
+        {{ title | safe }}</h1>
+      <h2 class="govuk-heading-m">Sources of ozone</h2>
+      <p>There are no major emission sources of ozone itself. Reactions between other pollutants form ozone in the air. For example, when pollutants from cars, power plants, and factories react with sunlight.
+      </p>
+      <p>
+       Ozone can be at unhealthy levels on hot, sunny days and even during colder months. It can travel by the wind, affecting both urban and rural areas.
+      </p> 
+      <h2 class="govuk-heading-m">Health effects </h2>
+      <p>
+        Short-term exposure to ozone can cause:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>shortness of breath, wheezing and coughing</li>
+        <li>asthma attacks</li>
+        <li>increased risk of respiratory infections</li>
+        <li>irritation of eyes, nose and throat
+        </li>
+      </ul>
+      <p>
+        Long-term exposure to ozone may lead to:
+      </p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>increased respiratory illnesses</li>
+        <li>metabolic disorders</li>
+        <li>nervous system issues</li>
+        <li>reproductive issues</li>
+        <li>cancer</li>
+        <li>heart issues</li>
+      </ul>
+      <p class="govuk-body govuk-!-margin-bottom-8">With long-term contact at high levels, your lungs may start showing symptoms like coughing or difficulty breathing as it reduces the ability of the lungs to function.</p>
+      {{ appPollutant_table({
+        caption: "Ozone levels<p class='govuk-!-margin-top-2'>Based on the running 8-hourly mean.</p>",
+    bands: [
+        { label: 'Low', value: "0 - 33" },
+        { label: 'Low', value: "34 - 66" },
+        { label: 'Low', value: "135 - 200" },
+        { label: 'Moderate', value: "67 - 100" },
+        { label: 'Moderate', value: "101 - 120" },
+        { label: 'Moderate', value: "121 - 140" },
+        { label: 'High', value: "141 - 160" },
+        { label: 'High', value: "188 - 213" },
+        { label: 'High', value: "214 - 240" },
+        { label: 'Very high', value: "241 or more" }
+    ]
+      }) }}
+    </div>
+  </div>
+{% endblock %}
+
