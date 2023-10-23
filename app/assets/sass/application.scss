@@ -22,6 +22,10 @@
   border-right: 3px solid white; /* Add a 3px white vertical border to header cells */
 }
 
+.daqi-table__header:last-child {
+  padding: govuk-spacing(2) govuk-spacing(2) govuk-spacing(2) 9px;
+}
+
 .daqi-table__cell {
   @include govuk-font($size: 16, $weight: bold);
   border: 0;

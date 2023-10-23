@@ -2,6 +2,8 @@ const localAuthorities = require('../data/local-authorities.js');
 const zones = require('../data/zones.js');
 const { getPoint } = require('../services/boundaries.js');
 const { getWeather } = require('../services/weather.js');
+const getAirQuality = require('../data/air-quality.js');  // This should be correct
+
 
 // Define bounding box for the UK
 const ukBoundingBox = {
@@ -12,7 +14,7 @@ const ukBoundingBox = {
 };
 
 exports.get = async (req, res) => {
-  const { q } = req.query;
+  const { q, aq } = req.query;  // Destructure aq from the query parameters
   let { forecast, location, error, redirect } = await getWeather(q);
 
   if (error) {
@@ -49,9 +51,13 @@ exports.get = async (req, res) => {
       const regionId = la?.gss_region_id || 'E12000008';
       const region = zones.find(item => item.gss === regionId);
 
+      // Get the airQuality data dynamically or default value
+      const airQuality = getAirQuality(aq);
+
+      // Extend res.locals with the airQuality data
       res.locals = {
         ...res.locals,
-        ...{ la, location, q, region }
+        ...{ la, location, q, region, airQuality }  // Adding the airQuality data
       };
 
       res.render('location');
