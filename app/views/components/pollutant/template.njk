@@ -12,7 +12,7 @@
     </p>
   {{ appDaqitag({
     classes: params.tagClass,
-    text: params.tagText
+    text: params.tagText | capitalize
   }) }}
-    <span class="govuk-body-s">{{ params.limit | safe }}</span>
+    {# <span class="govuk-body-s">{{ params.limit | safe }}</span> #}
 </div>

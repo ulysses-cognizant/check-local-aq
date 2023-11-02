@@ -1,4 +1,4 @@
-{% extends "layouts/content.html" %}
+{% extends "layouts/location-template.html" %}
 
 {% from "components/pollutant/macro.njk" import appPollutant %}
 {% from "components/section/macro.njk" import appSection %}
@@ -18,6 +18,10 @@
         {% endif %}
         {{ title }}
       </h1>
+    </div>
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
       <p class="govuk-body govuk-!-margin-bottom-6">The air quality today is <strong>{{ airQuality.value }}</strong>, with <strong>{{ airQuality.band }}</strong> levels of air pollution.</p>
       {% include "includes/daqi.html" %}
       <h2 class="govuk-heading-m">Health advice</h2>
@@ -28,92 +32,47 @@
       <p class="govuk-!-margin-bottom-6">
         {{ airQuality.outlook }}
       </p>
+      {% include "includes/measurement-stations.html" %}
+    </div>
+    <div class="govuk-grid-column-one-third">
+        {{ xGovukRelatedNavigation({
+          sections: [{
+            items: [{
+              text: "",
+              href: ""
+            }],
+            subsections: [{
+              title: "Gases",
+              items: [{
+                text: "Ozone (O₃)",
+                href: "/ozone"
+              },
+              {
+                  text: "Nitrogen dioxide (NO₂)",
+                  href: "/nitrogen-dioxide"
+                },
+                {
+                  classes: "govuk-heading-xl",
+                  text: "Sulphur dioxide (SO₂)",
+                  href: "/sulphur-dioxide"
+                }]
+              }, 
+              {
+              title: "Particles",
+                  items: [{
+                  text: "Particulate matter (PM2.5)",
+                  href: "/particulate-matter2"
+              },
+              {
+                  text: "Particulate matter (PM10)",
+                  href: "/particulate-matter10"
+              }
+              ]
+            }]
+          }]
+        }) }}
     </div>
   </div>
-  <div class="govuk-grid-row">
-      {{ appSection({
-        title: "Thorpebridge",
-        caption: "Nearest measurement station"
-      }) }}
-    </div>
-    <div class="govuk-grid-row">
-      {{ appSubsection({
-        title: "Gases",
-        description: "The main air pollutants that are measured in <strong>Thorpebridge</strong> are nitrogen dioxide (NO&#8322;), sulphur dioxide (SO&#8322;) and ozone (O&#8323;). The sources of these gases are from burning fossil fuels such as petrol, diesel, wood and coal.
-        "
-      }) }}
-    </div>
-    <div class="govuk-grid-row">
-      {{ appSubsection({
-        title: "Recent measurements",
-        description: ""
-      }) }}
-    </div>
-    <div class="govuk-grid-row">
-      {{ appPollutant({
-        href: "/ozone",
-        type: "Ozone (O&#8323;)",
-        value: "65",
-        unit: "micrograms (μg/&#13221;)",
-        limit: "Limit: 120 (μg/&#13221;)",
-        tagClass: 'daqi-tag daqi-tag--3  govuk-!-margin-right-1',  
-        tagText: 'Low' 
-      }) }}
-      {{ appPollutant({
-        href: "/nitrogen-dioxide",
-        type: "Nitrogen dioxide (NO&#8322;)",
-        value: "38",
-        unit: "micrograms (μg/&#13221;)",
-        limit: "Limit: 200 (μg/&#13221;)",
-        tagClass: 'daqi-tag daqi-tag--3  govuk-!-margin-right-1',  
-        tagText: 'Low' 
-      }) }}
-      {{ appPollutant({
-        href: "/sulphur-dioxide",
-        type: "Sulphur dioxide (SO&#8322;)",
-        value: "3",
-        unit: "micrograms (μg/&#13221;)",
-        limit: "Limit: 350 (μg/&#13221;)",
-        tagClass: 'daqi-tag daqi-tag--3  govuk-!-margin-right-1',  
-        tagText: 'Low' 
-      }) }}
-    </div>
-    <p class="govuk-body-s">Updated {{ "today" | govukDate }} at 10:00 am.</p>
-    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-    <div class="govuk-grid-row">
-      {{ appSubsection({
-        title: "Particles",
-        description: "Particulate matter (PM) are tiny pieces of solids or liquids in the air. They come from sources such as car tyres, brake and exhaust dust, wood burning and pollen. We call particles under 2.5 micrometres, PM 2.5 and particles under 10 micrometres, PM10.
-        "
-      }) }}
-    </div>
-    <div class="govuk-grid-row">
-      {{ appSubsection({
-        title: "Recent measurements",
-        description: ""
-      }) }}
-    </div>
-    <div class="govuk-grid-row">
-      {{ appPollutant({
-        href: "/particulate-matter2",
-        type: "Particles (PM2.5)",
-        value: "33",
-        unit: "micrograms (μg/&#13221;)",
-        limit: "Limit: 50 (μg/&#13221;)",
-        tagClass: 'daqi-tag daqi-tag--4  govuk-!-margin-right-1',  
-        tagText: 'MODERATE' 
-      }) }}
-      {{ appPollutant({
-        href: "/particulate-matter10",
-        type: "Particles (PM10)",
-        value: "22",
-        unit: "micrograms (μg/&#13221;)",
-        limit: "Limit: 200 (μg/&#13221;)",
-        tagClass: 'daqi-tag daqi-tag--3  govuk-!-margin-right-1',  
-        tagText: 'Low' 
-      }) }}
-    </div>
-    <p class="govuk-body-s govuk-!-margin-bottom-6">Updated {{ "today" | govukDate }} at 10:00 am.</p>
-
+  
 {% endblock %}
 

@@ -2,7 +2,6 @@
 {% from "components/pollutant/macro.njk" import appPollutant %}
 
 
-
 {% from "govuk/components/phase-banner/macro.njk" import govukPhaseBanner %}
 
 {% block pageTitle %}
@@ -13,10 +12,7 @@
 
 {% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
 
-
-
 {% block beforeContent %}
-
   {{ govukPhaseBanner({
     tag: {
       text: "BETA"

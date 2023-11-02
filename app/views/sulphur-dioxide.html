@@ -1,23 +1,23 @@
 {% extends "layouts/content.html" %}
 {% from "components/pollutant_table/macro.njk" import appPollutant_table %}
+
+{% set displayBacklink = false %}
 {% set caption = "Gases" %}
 {% set title = "Sulphur dioxide (SO₂)" %}
 
 {% set pageHeadingSize = pageHeadingSize or "xl" %}
 
-{% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "/location"
-  }) }}
-{% endblock %}
 
 {% block content %}
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-6">
+    <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-xl">{% if caption %}<span class="govuk-caption-{{ pageHeadingSize }}">{{ caption }}</span>
         {% endif %}
         {{ title | safe }}</h1>
+    </div>
+  </div>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-6">
       <h2 class="govuk-heading-m">Sources of sulphur dioxide</h2>
       <p>Sulphur dioxide is a colourless gas with a strong odour. It's mainly produced during:</p>
       <ul class="govuk-list govuk-list--bullet">
@@ -46,6 +46,40 @@
         { label: 'High', value: "888 - 1064" },
         { label: 'Very high', value: "1065 or more" }
     ]
+      }) }}
+    </div>
+    <div class="govuk-grid-column-one-third">
+      {{ xGovukRelatedNavigation({
+        sections: [{
+          items: [{
+            text: "",
+            href: ""
+          }],
+          subsections: [{
+            title: "Gases",
+            items: [{
+              text: "Ozone (O₃)",
+              href: "/ozone"
+            },
+            {
+              text: "Nitrogen dioxide (NO₂)",
+              href: "/nitrogen-dioxide"
+            }
+              ]
+            }, 
+            {
+            title: "Particles",
+                items: [{
+                text: "Particulate matter (PM2.5)",
+                href: "/particulate-matter2"
+            },
+            {
+                text: "Particulate matter (PM10)",
+                href: "/particulate-matter10"
+            }
+            ]
+          }]
+        }]
       }) }}
     </div>
   </div>

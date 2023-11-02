@@ -3,21 +3,20 @@
 {% set caption = "Gases" %}
 {% set title = "Ozone (O₃)" %}
 
+{% set displayBacklink = false %}
 {% set pageHeadingSize = pageHeadingSize or "xl" %}
 
-{% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "/location"
-  }) }}
-{% endblock %}
 
 {% block content %}
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-6">
+    <div class="govuk-grid-column-full">
       <h1 class="govuk-heading-xl">{% if caption %}<span class="govuk-caption-{{ pageHeadingSize }}">{{ caption }}</span>
         {% endif %}
         {{ title | safe }}</h1>
+    </div>
+  </div>
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-6">
       <h2 class="govuk-heading-m">Sources of ozone</h2>
       <p>There are no major emission sources of ozone itself. Reactions between other pollutants form ozone in the air. For example, when pollutants from cars, power plants, and factories react with sunlight.
       </p>
@@ -52,15 +51,49 @@
     bands: [
         { label: 'Low', value: "0 - 33" },
         { label: 'Low', value: "34 - 66" },
-        { label: 'Low', value: "135 - 200" },
-        { label: 'Moderate', value: "67 - 100" },
+        { label: 'Low', value: "67 - 100" },
         { label: 'Moderate', value: "101 - 120" },
         { label: 'Moderate', value: "121 - 140" },
-        { label: 'High', value: "141 - 160" },
+        { label: 'Moderate', value: "141 - 160" },
+        { label: 'High', value: "161 - 187" },
         { label: 'High', value: "188 - 213" },
         { label: 'High', value: "214 - 240" },
         { label: 'Very high', value: "241 or more" }
     ]
+      }) }}
+    </div>
+    <div class="govuk-grid-column-one-third">
+      {{ xGovukRelatedNavigation({
+        sections: [{
+          items: [{
+            text: "",
+            href: ""
+          }],
+          subsections: [{
+            title: "Gases",
+            items: [
+            {
+                text: "Nitrogen dioxide (NO₂)",
+                href: "/nitrogen-dioxide"
+              },
+              {
+                text: "Sulphur dioxide (SO₂)",
+                href: "/sulphur-dioxide"
+              }]
+            }, 
+            {
+            title: "Particles",
+                items: [{
+                text: "Particulate matter (PM2.5)",
+                href: "/particulate-matter2"
+            },
+            {
+                text: "Particulate matter (PM10)",
+                href: "/particulate-matter10"
+            }
+            ]
+          }]
+        }]
       }) }}
     </div>
   </div>

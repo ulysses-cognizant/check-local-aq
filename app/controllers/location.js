@@ -2,7 +2,8 @@ const localAuthorities = require('../data/local-authorities.js');
 const zones = require('../data/zones.js');
 const { getPoint } = require('../services/boundaries.js');
 const { getWeather } = require('../services/weather.js');
-const getAirQuality = require('../data/air-quality.js');  // This should be correct
+const getAirQuality = require('../data/air-quality.js');  
+const measurementStations = require('../data/measurement-stations.js');
 
 
 // Define bounding box for the UK
@@ -57,7 +58,7 @@ exports.get = async (req, res) => {
       // Extend res.locals with the airQuality data
       res.locals = {
         ...res.locals,
-        ...{ la, location, q, region, airQuality }  // Adding the airQuality data
+        la, location, q, region, airQuality, measurementStations
       };
 
       res.render('location');

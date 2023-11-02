@@ -3,14 +3,9 @@
 {% set title = "Particulate matter (PM10)" %}
 {% from "components/pollutant_table/macro.njk" import appPollutant_table %}
 
+{% set displayBacklink = false %}
 {% set pageHeadingSize = pageHeadingSize or "xl" %}
 
-{% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "/location"
-  }) }}
-{% endblock %}
 
 {% block content %}
   <div class="govuk-grid-row">
@@ -18,6 +13,10 @@
       <h1 class="govuk-heading-xl">{% if caption %}<span class="govuk-caption-{{ pageHeadingSize }}">{{ caption }}</span>
         {% endif %}
         {{ title | safe }}</h1>
+    </div>
+  </div>
+  <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
       <h2 class="govuk-heading-m">Sources of PM10</h2>
       <p>Particulate matter (PM), are small particles of solids or liquids that are in the air. The particles are only 10 micrometres in diameter. For context, the width of a human hair is 50 to 70 micrometres.
       </p>
@@ -61,6 +60,40 @@
         { label: 'High', value: "92 - 100" },
         { label: 'Very high', value: "101 or more" }
     ]
+      }) }}
+    </div>
+    <div class="govuk-grid-column-one-third">
+      {{ xGovukRelatedNavigation({
+        sections: [{
+          items: [{
+            text: "",
+            href: ""
+          }],
+          subsections: [{
+            title: "Gases",
+            items: [{
+              text: "Ozone (O₃)",
+              href: "/ozone"
+            },
+            {
+              text: "Nitrogen dioxide (NO₂)",
+              href: "/nitrogen-dioxide"
+            },
+            {
+              text: "Sulphur dioxide (SO₂)",
+              href: "/sulphur-dioxide"
+            }
+            ]
+            }, 
+            {
+            title: "Particles",
+                items: [{
+                text: "Fine particles (PM2.5)",
+                href: "/particulate-matter2"
+            }
+            ]
+          }]
+        }]
       }) }}
     </div>
   </div>

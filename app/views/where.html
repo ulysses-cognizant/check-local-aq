@@ -1,26 +1,25 @@
 {% extends "layouts/main.html" %}
-{% set title = "Where do you want to check?" %}
 {% set displayBreadcrumbs = false %}
 
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop">
-    <h1 class="govuk-heading-l">{{ title | noOrphans | safe }}</h1>
+
     <form action="/location/">
       {{ appSearch({
           label: {
-              text: "Enter a location or postcode",
-              classes: "govuk-label--m",
+              text: "Where do you want to check?",
+              classes: "govuk-label--l govuk-!-margin-bottom-6",
               isPageHeading: false
           },
           hint: {
-              text: "For example, Stockport or SK7 5DP"
+              text: "Enter a location or postcode"
           },
           id: "q",
           name: 'q'
       }) }}
       <!-- Hidden input to pass the air quality value -->
-      <input type="hidden" name="aq" value="{{ airQualityValue }}" />
+      <input type="hidden" name="aq" value="{{ airQuality.value }}" />
   </form>
   </div>
 </div>

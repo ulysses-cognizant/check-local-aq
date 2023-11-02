@@ -132,6 +132,10 @@ $daqi-colour-10: govuk-colour("purple");
   text-align: center;
 }
 
+.daqi-alignment__right {
+  text-align: right;
+}
+
 
 //DAQI Tag
 
@@ -150,7 +154,7 @@ $daqi-colour-10: govuk-colour("purple");
   letter-spacing: 1px;
 
   text-decoration: none;
-  text-transform: uppercase;
+  text-transform: capitalize;
 
   @if $govuk-use-legacy-font {
     // Since New Transport sits slightly higher than other common fonts.
