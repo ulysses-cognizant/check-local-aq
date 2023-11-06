@@ -5,7 +5,7 @@
 {% from "components/subsection/macro.njk" import appSubsection %}
 
 {% set caption = "Air quality" %}
-{% set title = location.name + ", " + location.region %}
+{% set title = result.GAZETTEER_ENTRY.NAME1 + ", " + (result.GAZETTEER_ENTRY.COUNTY_UNITARY if result.GAZETTEER_ENTRY.COUNTY_UNITARY else result.GAZETTEER_ENTRY.DISTRICT_BOROUGH) %}
 
 {% set pageHeadingSize = pageHeadingSize or "xl" %}
 

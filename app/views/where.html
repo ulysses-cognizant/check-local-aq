@@ -5,7 +5,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop">
 
-    <form action="/location/">
+    <form action="/location" method="post">
       {{ appSearch({
           label: {
               text: "Where do you want to check?",
@@ -15,8 +15,8 @@
           hint: {
               text: "Enter a location or postcode"
           },
-          id: "q",
-          name: 'q'
+          id: "location",
+          name: 'location'
       }) }}
       <!-- Hidden input to pass the air quality value -->
       <input type="hidden" name="aq" value="{{ airQuality.value }}" />
