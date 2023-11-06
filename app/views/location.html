@@ -22,7 +22,7 @@
   </div>
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <p class="govuk-body govuk-!-margin-bottom-6">The air quality today is <strong>{{ airQuality.value }}</strong>, with <strong>{{ airQuality.band }}</strong> levels of air pollution.</p>
+      <p class="govuk-body govuk-!-margin-bottom-6">The air pollution forecast for today is <strong>{{ airQuality.band }}</strong> <strong>({{ airQuality.value }})</strong>.</p>
       {% include "includes/daqi.html" %}
       <h2 class="govuk-heading-m">Health advice</h2>
       <p class="govuk-!-margin-bottom-6">
