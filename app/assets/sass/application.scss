@@ -51,15 +51,15 @@
 
 // DAQI colours
 
-$daqi-colour-1: mix(govuk-colour("light-green"), govuk-colour("white"), 75%);
-$daqi-colour-2: mix(govuk-colour("light-green"), govuk-colour("green"), 50%);
+$daqi-colour-1: govuk-colour("green");
+$daqi-colour-2: govuk-colour("green");
 $daqi-colour-3: govuk-colour("green");
 $daqi-colour-4: govuk-colour("yellow");
-$daqi-colour-5: mix(govuk-colour("yellow"), govuk-colour("orange"), 50%);
-$daqi-colour-6: govuk-colour("orange");
-$daqi-colour-7: mix(govuk-colour("light-pink"), govuk-colour("red"), 50%);
+$daqi-colour-5: govuk-colour("yellow");
+$daqi-colour-6: govuk-colour("yellow");
+$daqi-colour-7: govuk-colour("red");
 $daqi-colour-8: govuk-colour("red");
-$daqi-colour-9: mix(govuk-colour("red"), govuk-colour("black"), 50%);
+$daqi-colour-9: govuk-colour("red");
 $daqi-colour-10: govuk-colour("purple");
   
   
@@ -71,7 +71,7 @@ $daqi-colour-10: govuk-colour("purple");
 
   .daqi-1 {
     background-color: $daqi-colour-1;
-    color: govuk-colour("black");
+    color: govuk-colour("white");
   }
   
   .daqi-2 {
@@ -96,12 +96,12 @@ $daqi-colour-10: govuk-colour("purple");
   
   .daqi-6 {
     background-color: $daqi-colour-6;
-    color: govuk-colour("white");
+    color: govuk-colour("black");
   }
   
   .daqi-7 {
     background-color: $daqi-colour-7;
-    color: govuk-colour("black");
+    color: govuk-colour("white");
   }
   
   .daqi-8 {
@@ -174,6 +174,10 @@ $daqi-colour-10: govuk-colour("purple");
   }
 }
 
+.daqi-tag--round {
+  border-radius: 50%; 
+}
+
 mark {
   background-color: transparent;
   font-weight: bold;
@@ -181,7 +185,7 @@ mark {
 }
 
 .daqi-tag--1 {
-  color: govuk-colour("black");
+  color: govuk-colour("white");
   background: $daqi-colour-1;
 }
 
@@ -211,7 +215,7 @@ mark {
 }
 
 .daqi-tag--7 {
-  color: govuk-colour("black");
+  color: govuk-colour("white");
   background: $daqi-colour-7;
 }
 
