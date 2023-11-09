@@ -80,7 +80,7 @@ const stations = [
     daqi_band: 'low',
     o3: 17.762,
     o3_limit: 0,
-    no2: 500,
+    no2: 200,
     no2_limit: 0,
     so2: 6.785,
     so2_limit: 0,

@@ -76,7 +76,7 @@ exports.getLocationDetails = (req, res) => {
       const airQuality = getAirQuality(/* Retrieved from session or another source */);
       res.render('location', { result: locationDetails, airQuality: airQuality, measurementStations: measurementStations });
     } else {
-      res.send("No details found for the given location ID.");
+      res.render('location-details-notfound');
     }
   } catch (error) {
     console.error('Error retrieving location details:', error);
