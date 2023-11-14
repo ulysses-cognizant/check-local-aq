@@ -22,16 +22,22 @@
   </div>
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h2 class="govuk-heading-m govuk-!-margin-bottom-4">The air pollution forecast for today is {{ airQuality.band }}, index {{ airQuality.value }}</h2>
-      {% include "includes/daqi-index.html" %}
-      <h3 class="govuk-heading-s govuk-!-margin-bottom-2">Health advice</h3>
-      <p class="govuk-!-margin-bottom-6">
-        {{ airQuality.advice }}
-      </p>
-      <h3 class="govuk-heading-s govuk-!-margin-bottom-2">UK Summary</h3>
+      {% include "includes/daqi.html" %}
+      {% if airQuality.value >= 1 and airQuality.value <= 3 %}
+          <h3 class="govuk-heading-m govuk-!-margin-bottom-2">Health advice</h3>
+          <p>{{ airQuality.advice }}</p>
+      {% elseif airQuality.value >= 4 %}
+          <h3 class="govuk-heading-m govuk-!-margin-bottom-2">Health advice</h3>
+          <p>{{ airQuality.atrisk.adults }}</p>
+          <p>{{ airQuality.atrisk.asthma }}</p>
+          <p>{{ airQuality.atrisk.oldPeople }}</p>
+      {% endif %}    
+      {% include "includes/daqi-index.html" %} 
+      <h3 class="govuk-heading-m govuk-!-margin-bottom-2">UK Summary</h3>
       <p class="govuk-!-margin-bottom-6">
         {{ airQuality.outlook }}
       </p>
+
       <p class="govuk-body-s govuk-!-margin-bottom-4">Updated {{ "today" | govukDate }} at 05:00 am.</p>
       <hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-4">
       {% include "includes/measurement-stations.html" %}

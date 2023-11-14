@@ -1,6 +1,7 @@
 const axios = require('axios');
-const getAirQuality = require('../data/air-quality.js');
+const { getAirQuality } = require('../data/air-quality.js');
 const measurementStations = require('../data/measurement-stations.js');
+const airQualityData = require('../data/air-quality.js');
 const apiKey = process.env.OS_API_KEY;
 
 
@@ -53,9 +54,9 @@ exports.getLocationData = async (req, res) => {
     req.session.locationData = matches; // Store the data in session
 
     if (matches.length === 1) {
-      res.render('location', { result: matches[0], airQuality: airQuality, measurementStations: measurementStations });
+      res.render('location', { result: matches[0], airQuality: airQuality, airQualityData: airQualityData.commonMessages, measurementStations: measurementStations });
     } else if (matches.length > 1) {
-      res.render('multiple_locations', { results: matches, userLocation: originalUserLocation, airQuality: airQuality, measurementStations: measurementStations });
+      res.render('multiple_locations', { results: matches, userLocation: originalUserLocation, airQuality: airQuality,airQualityData: airQualityData.commonMessages, measurementStations: measurementStations });
     } else {
       res.render('location-not-found', { userLocation: originalUserLocation });
     }
@@ -74,7 +75,7 @@ exports.getLocationDetails = (req, res) => {
 
     if (locationDetails) {
       const airQuality = getAirQuality(/* Retrieved from session or another source */);
-      res.render('location', { result: locationDetails, airQuality: airQuality, measurementStations: measurementStations });
+      res.render('location', { result: locationDetails, airQuality: airQuality, airQualityData: airQualityData.commonMessages, measurementStations: measurementStations });
     } else {
       res.render('location-details-notfound');
     }

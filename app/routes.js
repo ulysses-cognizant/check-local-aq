@@ -9,35 +9,13 @@ const locationController = require('./controllers/location');
 const measurementStations = require('./data/measurement-stations.js');
 const airQuality = require('./data/air-quality.js');
 
-
-
-// const govukPrototypeKit = require('govuk-prototype-kit')
-// const router = govukPrototypeKit.requests.setupRouter()
-
-
-// const airQuality = require('./data/air-quality.js');
-// const measurementStations = require('./data/measurement-stations.js');
-// const locationController = require('./controllers/location');
-
-// // POST route for where.html submission
-// router.post('/location', locationController.getLocationData);
-
-// // New GET route to handle individual location details
-// router.get('/location/:id', locationController.getLocationDetails);
-
-
-
-
-// // Location
-// router.get('/location', locationController.get)
-
-
-//Air quality
+// // Air quality
 router.get('/where', (req, res) => {
-    res.render('where', {
-      airQuality: airQuality
-    });
+  res.render('where', {
+    airQuality: airQuality, // Keep passing the entire airQuality module
+  });
 });
+
 
 // Route for an individual measurement station
 router.get('/stations/:slug', (req, res) => {

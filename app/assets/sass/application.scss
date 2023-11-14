@@ -27,14 +27,20 @@
 }
 
 .daqi-table__cell {
-  @include govuk-font($size: 16, $weight: bold);
+  @include govuk-font($size: 16, $weight: regular);
+  padding: govuk-spacing(2);
   border: 0;
-  border-right: 3px solid white; /* Add a 3px white vertical border to data cells */
+  width: 10%;
+  background-color: govuk-colour("light-grey");
+  border-right: 2px solid white; /* Add a 3px white vertical border to data cells */
+}
+
+.daqi-table__cell:last-child {
+  padding: govuk-spacing(2) govuk-spacing(2) govuk-spacing(2) 9px;
 }
 
 .daqi-table__caption {
   font-weight: 700;
-  display: none;
   text-align: left;
   
 }
@@ -51,6 +57,7 @@
 
 // DAQI colours
 
+$daqi-colour-0: govuk-colour("light-grey");
 $daqi-colour-1: govuk-colour("green");
 $daqi-colour-2: govuk-colour("green");
 $daqi-colour-3: govuk-colour("green");
@@ -69,72 +76,79 @@ $daqi-colour-10: govuk-colour("purple");
     font-weight: bold; 
   }
 
+  .daqi-0 {
+    background-color: $daqi-colour-0;
+    color: govuk-colour("black");
+  }
+
   .daqi-1 {
     background-color: $daqi-colour-1;
     color: govuk-colour("white");
+    font-weight: bold; 
   }
   
   .daqi-2 {
     background-color: $daqi-colour-2;
     color: govuk-colour("white");
+    font-weight: bold; 
   }
   
   .daqi-3 {
     background-color: $daqi-colour-3;
     color: govuk-colour("white");
+    font-weight: bold; 
   }
   
   .daqi-4 {
     background-color: $daqi-colour-4;
     color: govuk-colour("black");
+    font-weight: bold; 
   }
   
   .daqi-5 {
     background-color: $daqi-colour-5;
     color: govuk-colour("black");
+    font-weight: bold; 
   }
   
   .daqi-6 {
     background-color: $daqi-colour-6;
     color: govuk-colour("black");
+    font-weight: bold; 
   }
   
   .daqi-7 {
     background-color: $daqi-colour-7;
     color: govuk-colour("white");
+    font-weight: bold; 
   }
   
   .daqi-8 {
     background-color: $daqi-colour-8;
     color: govuk-colour("white");
+    font-weight: bold; 
   }
   
   .daqi-9 {
     background-color: $daqi-colour-9;
     color: govuk-colour("white");
+    font-weight: bold; 
   }
   
   .daqi-10 {
     background-color: $daqi-colour-10;
     color: govuk-colour("white");
+    font-weight: bold; 
 }
 
-.daqi-1,
-.daqi-2,
-.daqi-3,
-.daqi-4,
-.daqi-5,
-.daqi-6,
-.daqi-7,
-.daqi-8,
-.daqi-9,
-.daqi-10 {
-  text-align: center;
+
+@for $i from 0 through 10 {
+  .daqi-#{$i} {
+    text-align: center;
+  }
 }
 
-.daqi-alignment__right {
-  text-align: right;
-}
+
 
 
 //DAQI Tag
@@ -235,9 +249,6 @@ mark {
 }
 
 
-
-
-
 // Pollutants
 
 .pollutant-value {
@@ -250,4 +261,32 @@ mark {
     border-top: 2px solid govuk-colour("black");
     margin: 0 0 govuk-spacing(6);
     padding: govuk-spacing(6) 0 0;
+}
+
+
+//Forecast Panel
+
+@for $i from 1 through 3 {
+  .daqi-panel--#{$i} {
+    border-left: 10px solid $daqi-colour-1;
+    background-color: #fdedee;
+  }
+}
+
+@for $i from 4 through 6 {
+  .daqi-panel--#{$i} {
+    border-left: 10px solid $daqi-colour-4;
+    background-color: #fdedee;
+  }
+}
+
+@for $i from 7 through 9 {
+  .daqi-panel--#{$i} {
+    border-left: 10px solid $daqi-colour-7;
+  }
+}
+
+.daqi-panel {
+  border-left: 10px solid $daqi-colour-10;
+  background-color: #fdedee;
 }

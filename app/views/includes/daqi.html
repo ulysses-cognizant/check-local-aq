@@ -1,63 +1,24 @@
 {% set daqiValue = airQuality.value %}
 
-{% set headers = [] %}
+{% set firstRow = [] %}
 {% for i in range(1, 11) %}
-    {% set headerClass = "daqi-table__header" %}
     {% if daqiValue == i %}
-        {% set headerClass = headerClass + " daqi-selected daqi-" + i %}
+        {% set cellClass = "daqi-table__cell daqi-selected daqi-" ~ i %}
+    {% else %}
+        {% set cellClass = "daqi-table__cell daqi-0" %}
     {% endif %}
-    {% set header = { classes: headerClass, text: "" + i } %}
-    {% set _ = headers.push(header) %}
+    {% set cell = { classes: cellClass, text: i | string } %}
+    {% set _ = firstRow.push(cell) %}
 {% endfor %}
 
 {{ govukTable({
-    caption: "Daily air quality index",
-    captionClasses: "daqi-table__caption govuk-!-margin-bottom-6",
-    head: headers,
-    rows: [
-      [{
-        classes: "daqi-1 daqi-table__cell"
-      }, {
-        classes: "daqi-2 daqi-table__cell"
-      }, {
-        classes: "daqi-3 daqi-table__cell"
-      }, {
-        classes: "daqi-4 daqi-table__cell"
-      }, {
-        classes: "daqi-5 daqi-table__cell"
-      }, {
-        classes: "daqi-6 daqi-table__cell"
-      }, {
-        classes: "daqi-7 daqi-table__cell"
-      }, {
-        classes: "daqi-8 daqi-table__cell"
-      }, {
-        classes: "daqi-9 daqi-table__cell"
-      }, {
-        classes: "daqi-10 daqi-table__cell"
-      }],
-      [{
-        text: "Low",
-        classes: "daqi-band",
-        colspan: 3
-      }, {
-        text: "Moderate",
-        classes: "daqi-band",
-        colspan: 3
-      }, {
-        text: "High",
-        classes: "daqi-band",
-        colspan: 3
-      }, {
-        text: "Very High",
-        classes: "daqi-band"
-      }]
-    ]
+  caption: "The air pollution forecast for today is " ~ (airQuality.band | default('unknown')),
+  captionClasses: "govuk-heading-m daqi-table__caption govuk-!-margin-bottom-6",
+  head: [], 
+  rows: [firstRow, [
+      { text: "Low", classes: "daqi-band", colspan: 3 },
+      { text: "Moderate", classes: "daqi-band", colspan: 3 },
+      { text: "High", classes: "daqi-band", colspan: 3 },
+      { text: "Very High", classes: "daqi-band" }
+  ]]
 }) }}
-
-{{ govukDetails({
-    summaryText: "What is the Daily Air Quality Index?",
-    html: "<p>The Daily Air Quality Index (DAQI) tells you the expected levels of air pollution.</p>
-    <p>The levels - low, medium, high, and very high - can inform you about the short-term health effects.</p>"
-}) }}
-
