@@ -56,7 +56,7 @@ exports.getLocationData = async (req, res) => {
     if (matches.length === 1) {
       res.render('location', { result: matches[0], airQuality: airQuality, airQualityData: airQualityData.commonMessages, measurementStations: measurementStations });
     } else if (matches.length > 1) {
-      res.render('multiple_locations', { results: matches, userLocation: originalUserLocation, airQuality: airQuality,airQualityData: airQualityData.commonMessages, measurementStations: measurementStations });
+      res.render('multiple_locations', { results: matches, userLocation: originalUserLocation, airQuality: airQuality, airQualityData: airQualityData.commonMessages, measurementStations: measurementStations });
     } else {
       res.render('location-not-found', { userLocation: originalUserLocation });
     }

@@ -52,24 +52,29 @@ function getAirQuality(aqValue) {
     const value = aqValue || "4"; // Default value
 
     const lookup = {
-        "1": { band: "low" },
-        "2": { band: "low" },
-        "3": { band: "low" },
-        "4": { band: "moderate" },
-        "5": { band: "moderate" },
-        "6": { band: "moderate" },
-        "7": { band: "high" },
-        "8": { band: "high" },
-        "9": { band: "high" },
-        "10": { band: "veryHigh" }
+        "1": { band: "low", readableBand: "low" },
+        "2": { band: "low", readableBand: "low" },
+        "3": { band: "low", readableBand: "low" },
+        "4": { band: "moderate", readableBand: "moderate" },
+        "5": { band: "moderate", readableBand: "moderate" },
+        "6": { band: "moderate", readableBand: "moderate" },
+        "7": { band: "high", readableBand: "high" },
+        "8": { band: "high", readableBand: "high" },
+        "9": { band: "high", readableBand: "high" },
+        "10": { band: "veryHigh", readableBand: "very high" }
     };
 
-    const band = lookup[value] ? lookup[value].band : "unknown";
+ 
+    const bandInfo = lookup[value] || { band: "unknown", readableBand: "unknown" };
+    const band = bandInfo.band;
+    const readableBand = bandInfo.readableBand; 
+
     const message = getCommonMessage(band);
 
     return {
         value: value,
         band: band,
+        readableBand: readableBand, // Now readableBand is defined
         advice: message.advice,
         atrisk: message.atrisk,
         outlook: message.outlook

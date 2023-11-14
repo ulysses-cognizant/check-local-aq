@@ -12,13 +12,13 @@
 {% endfor %}
 
 {{ govukTable({
-  caption: "The air pollution forecast for today is " ~ (airQuality.band | default('unknown')),
+  caption: "The air pollution forecast for today is " ~ (airQuality.readableBand | default('unknown')),
   captionClasses: "govuk-heading-m daqi-table__caption govuk-!-margin-bottom-6",
   head: [], 
   rows: [firstRow, [
       { text: "Low", classes: "daqi-band", colspan: 3 },
       { text: "Moderate", classes: "daqi-band", colspan: 3 },
       { text: "High", classes: "daqi-band", colspan: 3 },
-      { text: "Very High", classes: "daqi-band" }
+      { text: "Very high", classes: "daqi-band" }
   ]]
 }) }}
