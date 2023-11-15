@@ -168,7 +168,6 @@ $daqi-colour-10: govuk-colour("purple");
   letter-spacing: 1px;
 
   text-decoration: none;
-  text-transform: capitalize;
 
   @if $govuk-use-legacy-font {
     // Since New Transport sits slightly higher than other common fonts.
