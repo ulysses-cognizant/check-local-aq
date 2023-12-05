@@ -1,13 +1,17 @@
 {% extends "layouts/location-template.html" %}
 
 {% from "components/pollutant/macro.njk" import appPollutant %}
-{% from "components/section/macro.njk" import appSection %}
-{% from "components/subsection/macro.njk" import appSubsection %}
+{% from "components/toggletip/macro.njk" import toggletip %}
 
-{% set caption = "Air quality" %}
+
+{% set caption = "" %}
 {% set title = result.GAZETTEER_ENTRY.NAME1 + ", " + (result.GAZETTEER_ENTRY.COUNTY_UNITARY if result.GAZETTEER_ENTRY.COUNTY_UNITARY else result.GAZETTEER_ENTRY.DISTRICT_BOROUGH) %}
 
 {% set pageHeadingSize = pageHeadingSize or "xl" %}
+
+{% block pageScripts %}
+  <script src="/public/javascripts/toggletips.js"></script>
+{% endblock %}
 
 {% block content %}
   <div class="govuk-grid-row">
@@ -21,66 +25,45 @@
     </div>
   </div>
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-two-thirds govuk-!-margin-bottom-9">
       {% include "includes/daqi.html" %}
       {% if airQuality.value >= 1 and airQuality.value <= 3 %}
-          <h3 class="govuk-heading-m govuk-!-margin-bottom-2">Health advice</h3>
+          <h2 class="govuk-heading-m">Health advice for {{ airQuality.readableBand }} levels of air pollution</h2>
           <p>{{ airQuality.advice }}</p>
       {% elseif airQuality.value >= 4 %}
-          <h3 class="govuk-heading-m govuk-!-margin-bottom-2">Health advice</h3>
-          <p>{{ airQuality.atrisk.adults }}</p>
-          <p>{{ airQuality.atrisk.asthma }}</p>
-          <p>{{ airQuality.atrisk.oldPeople }}</p>
+          <h2 class="govuk-heading-m">Health advice for {{ airQuality.readableBand }} levels of air pollution</h2>
+          {% set adultsText %}
+            {{ (airQuality.atrisk.adults) }}
+          {% endset %}
+          {% set asthmaText %}
+            {{ (airQuality.atrisk.asthma) }}
+          {% endset %}
+          {% set oldPeopleText %}
+          {{ (airQuality.atrisk.oldPeople) }}
+          {% endset %}
+          {{ govukInsetText({
+            html: 
+              "<p>" + adultsText + "</p>" + 
+              "<p>" + asthmaText + "</p>" +
+              "<p>" + oldPeopleText + "</p>" 
+          }) }}
+          <p>{{ airQuality.advice }}</p>
       {% endif %}    
-      {% include "includes/daqi-index.html" %} 
-      <h3 class="govuk-heading-m govuk-!-margin-bottom-2">UK summary</h3>
+      {% include "includes/daqi-index.html" %}
+      <h2 class="govuk-heading-m">UK summary</h2>
       <p class="govuk-!-margin-bottom-6">
         {{ airQuality.outlook }}
       </p>
-
-      <p class="govuk-body-s govuk-!-margin-bottom-4">Updated {{ "today" | govukDate }} at 05:00 am.</p>
-      <hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-4">
-      {% include "includes/measurement-stations.html" %}
+      <p class="govuk-caption-s govuk-!-margin-bottom-4">Latest at 05:00am {{ "today" | govukDate }}</p>
+      <hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-6">
+      <h2 class="govuk-heading-m">Air pollutants and their effect on your health</h2>
+      {% include "includes/pollutants.html" %}
+      <hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-6 govuk-!-margin-top-6">
+      <h2 class="govuk-heading-m">Air pollutants monitored near by</h2>
+        {% include "includes/monitoring-sites.html" %}
+      </div>
     </div>
-    <div class="govuk-grid-column-one-third">
-        {{ xGovukRelatedNavigation({
-          sections: [{
-            items: [{
-              text: "",
-              href: ""
-            }],
-            subsections: [{
-              title: "Gases",
-              items: [{
-                text: "Ozone (O₃)",
-                href: "/ozone"
-              },
-              {
-                  text: "Nitrogen dioxide (NO₂)",
-                  href: "/nitrogen-dioxide"
-                },
-                {
-                  classes: "govuk-heading-xl",
-                  text: "Sulphur dioxide (SO₂)",
-                  href: "/sulphur-dioxide"
-                }]
-              }, 
-              {
-              title: "Particles",
-                  items: [{
-                  text: "Particulate matter (PM2.5)",
-                  href: "/particulate-matter2"
-              },
-              {
-                  text: "Particulate matter (PM10)",
-                  href: "/particulate-matter10"
-              }
-              ]
-            }]
-          }]
-        }) }}
-    </div>
-  </div>
   
 {% endblock %}
+
 

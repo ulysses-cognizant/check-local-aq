@@ -11,7 +11,7 @@ const commonMessages = {
     },
     moderate: {
         values: [4, 5, 6],
-        advice: "Enjoy your usual outdoor activities.",
+        advice: "The general population can continue their usual activities.",
         atrisk: {
             adults: "Adults with heart problems, who experience symptoms, should consider reducing strenuous physical activity, particularly outdoors.",
             asthma: "People with asthma should be prepared to use their reliever inhaler.",

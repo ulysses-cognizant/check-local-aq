@@ -1,8 +1,7 @@
 {% extends "layouts/content.html" %}
-{% from "components/pollutant_table/macro.njk" import appPollutant_table %}
 
 {% set displayBacklink = false %}
-{% set caption = "Gases" %}
+{% set caption = "" %}
 {% set title = "Sulphur dioxide (SO₂)" %}
 
 {% set pageHeadingSize = pageHeadingSize or "xl" %}
@@ -32,55 +31,6 @@
         Short-term contact with sulphur dioxide may cause irritation to the eyes, nose, and throat.
       </p>
       <p class="govuk-body govuk-!-margin-bottom-8">With long-term contact at high levels, your lungs may start showing symptoms like coughing or difficulty breathing as it reduces the ability of the lungs to function.</p>
-      {{ appPollutant_table({
-        caption: "Sulphur dioxide levels<p class='govuk-!-margin-top-2'>Based on the 15-minute mean concentration.</p>",
-    bands: [
-        { label: 'Low', value: "0 - 88" },
-        { label: 'Low', value: "89 - 177" },
-        { label: 'Low', value: "178 - 266" },
-        { label: 'Moderate', value: "267 - 354" },
-        { label: 'Moderate', value: "355 - 443" },
-        { label: 'Moderate', value: "444 - 532" },
-        { label: 'High', value: "533 - 710" },
-        { label: 'High', value: "711 - 887" },
-        { label: 'High', value: "888 - 1064" },
-        { label: 'Very high', value: "1065 or more" }
-    ]
-      }) }}
-    </div>
-    <div class="govuk-grid-column-one-third">
-      {{ xGovukRelatedNavigation({
-        sections: [{
-          items: [{
-            text: "",
-            href: ""
-          }],
-          subsections: [{
-            title: "Gases",
-            items: [{
-              text: "Ozone (O₃)",
-              href: "/ozone"
-            },
-            {
-              text: "Nitrogen dioxide (NO₂)",
-              href: "/nitrogen-dioxide"
-            }
-              ]
-            }, 
-            {
-            title: "Particles",
-                items: [{
-                text: "Particulate matter (PM2.5)",
-                href: "/particulate-matter2"
-            },
-            {
-                text: "Particulate matter (PM10)",
-                href: "/particulate-matter10"
-            }
-            ]
-          }]
-        }]
-      }) }}
     </div>
   </div>
 {% endblock %}

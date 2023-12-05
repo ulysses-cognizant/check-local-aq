@@ -1,8 +1,9 @@
 const axios = require('axios');
 const { getAirQuality } = require('../data/air-quality.js');
-const measurementStations = require('../data/measurement-stations.js');
+const monitoringSites = require('../data/monitoring-sites.js');
 const airQualityData = require('../data/air-quality.js');
-const apiKey = process.env.OS_API_KEY;
+const apiKey = '21QLuXkjHjzpy4AyvOnQSKqLkRdiG5KV'; 
+// const apiKey = process.env.OS_API_KEY;
 
 
 exports.getLocationData = async (req, res) => {
@@ -24,7 +25,7 @@ exports.getLocationData = async (req, res) => {
     const airQuality = getAirQuality(aqValue);
 
     if (!userLocation) {
-      return res.status(400).send("No location provided");
+      return res.status(400).redirect('enter-location');
     }
 
     let filters = [
@@ -54,17 +55,20 @@ exports.getLocationData = async (req, res) => {
     req.session.locationData = matches; // Store the data in session
 
     if (matches.length === 1) {
-      res.render('location', { result: matches[0], airQuality: airQuality, airQualityData: airQualityData.commonMessages, measurementStations: measurementStations });
+      console.log("Monitoring Sites Data:", JSON.stringify(monitoringSites, null, 2));
+      res.render('location', { result: matches[0], airQuality: airQuality, airQualityData: airQualityData.commonMessages, monitoringSites: monitoringSites });
     } else if (matches.length > 1) {
-      res.render('multiple_locations', { results: matches, userLocation: originalUserLocation, airQuality: airQuality, airQualityData: airQualityData.commonMessages, measurementStations: measurementStations });
+      res.render('multiple_locations', { results: matches, userLocation: originalUserLocation, airQuality: airQuality, airQualityData: airQualityData.commonMessages, monitoringSites: monitoringSites });
     } else {
       res.render('location-not-found', { userLocation: originalUserLocation });
     }
   } catch (error) {
     console.error('Error fetching data:', error);
-    res.status(500).send("Error occurred");
+    res.status(500).redirect('location-details-notfound'); 
   }
 };
+
+
 
 
 exports.getLocationDetails = (req, res) => {
@@ -75,12 +79,12 @@ exports.getLocationDetails = (req, res) => {
 
     if (locationDetails) {
       const airQuality = getAirQuality(/* Retrieved from session or another source */);
-      res.render('location', { result: locationDetails, airQuality: airQuality, airQualityData: airQualityData.commonMessages, measurementStations: measurementStations });
+      res.render('location', { result: locationDetails, airQuality: airQuality, airQualityData: airQualityData.commonMessages, monitoringSites: monitoringSites });
     } else {
       res.render('location-details-notfound');
     }
   } catch (error) {
     console.error('Error retrieving location details:', error);
-    res.status(500).send("Error occurred");
+    res.status(500).redirect('location-details-notfound'); 
   }
 };

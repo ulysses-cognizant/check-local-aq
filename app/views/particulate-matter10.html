@@ -1,7 +1,6 @@
 {% extends "layouts/content.html" %}
-{% set caption = "Particles" %}
+{% set caption = "" %}
 {% set title = "Particulate matter (PM10)" %}
-{% from "components/pollutant_table/macro.njk" import appPollutant_table %}
 
 {% set displayBacklink = false %}
 {% set pageHeadingSize = pageHeadingSize or "xl" %}
@@ -46,55 +45,6 @@
         <li>cancer</li>
         <li>chronic obstructive pulmonary disease (COPD)</li>
       </ul>
-      {{ appPollutant_table({
-        caption: "PM10 levels <p class='govuk-!-margin-top-2'>Based on the daily mean concentration for historical data, latest 24 hour running mean for the current day.</p>",
-    bands: [
-        { label: 'Low', value: "0 - 16" },
-        { label: 'Low', value: "17 - 33" },
-        { label: 'Low', value: "34 - 50" },
-        { label: 'Moderate', value: "51 - 58" },
-        { label: 'Moderate', value: "59 - 66" },
-        { label: 'Moderate', value: "67 - 75" },
-        { label: 'High', value: "76 - 83" },
-        { label: 'High', value: "84 - 91" },
-        { label: 'High', value: "92 - 100" },
-        { label: 'Very high', value: "101 or more" }
-    ]
-      }) }}
-    </div>
-    <div class="govuk-grid-column-one-third">
-      {{ xGovukRelatedNavigation({
-        sections: [{
-          items: [{
-            text: "",
-            href: ""
-          }],
-          subsections: [{
-            title: "Gases",
-            items: [{
-              text: "Ozone (O₃)",
-              href: "/ozone"
-            },
-            {
-              text: "Nitrogen dioxide (NO₂)",
-              href: "/nitrogen-dioxide"
-            },
-            {
-              text: "Sulphur dioxide (SO₂)",
-              href: "/sulphur-dioxide"
-            }
-            ]
-            }, 
-            {
-            title: "Particles",
-                items: [{
-                text: "Fine particles (PM2.5)",
-                href: "/particulate-matter2"
-            }
-            ]
-          }]
-        }]
-      }) }}
     </div>
   </div>
 {% endblock %}

@@ -289,3 +289,235 @@ mark {
   border-left: 10px solid $daqi-colour-10;
   background-color: #fdedee;
 }
+
+//Pollutant Card
+
+.air-quality-statistics__list {
+  margin: 0;
+}
+
+.air-quality-statistics {
+  &__list {
+      margin:0;
+  }
+  &__list:after {
+      content:'';
+      display:block;
+      clear:both;
+  }
+  &__item {
+    float: left;
+    box-sizing: border-box;
+    padding-right: 10px;
+    min-width: 6em;
+    
+    @include mq($from: desktop) {
+        width: 33.33%; /* All items take 33.33% width on desktop */
+    }
+  }
+  &__item:first-child {
+      width: 33.33%; /* First item takes 50% width */
+  }
+  &__item:nth-child(2), &__item:nth-child(3) {
+      width: 33.33%; /* Second and third items take 25% width */
+  }
+    &__key {
+        @include govuk-font($size: 19);
+        color: $govuk-secondary-text-colour;
+    }
+    &__value {
+        @include govuk-font($size: 27);
+        margin:0;
+        display: block;
+        box-sizing: border-box;
+    }
+  &__value::first-letter {
+      margin-left: -0.075em;
+  }       
+  &__data-tip:focus {
+      border-bottom: 0px;
+      margin-bottom: 0px;
+  }
+  &--border {
+      border-top: 1px solid $govuk-border-colour;
+      border-bottom: 1px solid $govuk-border-colour;
+      padding-bottom: 15px; 
+      @include mq ($from: tablet) {
+          padding-bottom: 20px;
+      }
+  }
+  &--border &__key {
+      padding-top: 15px;
+  }
+}
+
+
+@mixin defra-visually-hidden() {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  border: 0;
+  white-space: nowrap;
+}
+
+.defra-toggletip {
+	// height: 1rem;
+	&:first-child {
+		display: inline-block;
+	}
+  display: inline-block;
+  position: relative;
+	&:not(.defra-toggletip-target) {
+		padding-right: 26px;
+	}
+	&--open {
+		z-index: 99;
+	}
+	&__container {
+		position: absolute;
+		top: -3px;
+		@include mq ($from: tablet) {
+			top: -1px;
+		}
+		right: 0px;
+		width: 26px;
+		height: 26px;
+	}
+	&__button {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 26px;
+		height: 26px;
+		background-color: white;
+		border: 0px;
+		padding: 0px;
+		text-align: center;
+		color: $govuk-text-colour;
+		cursor: help;
+		&-icon {
+			pointer-events: none;
+			position: absolute;
+			overflow: visible;
+			top: 5px;
+			left: 5px;
+			width: 16px;
+			height: 16px;
+			border-radius: 100%;
+		}
+		&-text {
+			@include defra-visually-hidden();
+		}
+		svg {
+			position: relative;
+			margin: -1px 0px 0px -1px;
+		}
+		&:hover, &:focus {
+			color: govuk-colour('black');
+		}
+		&:hover span {
+			box-shadow: 0 0 0 5px govuk-colour('light-grey');
+		}
+		&:focus {
+			outline: 3px solid transparent;
+			span {
+				box-shadow: 0 0 0 1px govuk-colour('black'), 0 0 0 5px $govuk-focus-colour;
+			}
+		}
+	}
+	&__info {
+		@include govuk-font($size: 16);
+		cursor: auto;
+		position:absolute;
+		width:0px;
+		overflow: hidden;
+		box-sizing: border-box;
+		visibility: hidden;
+		top: auto;
+		bottom: 100%;
+		left: 0px;
+		padding-bottom: 10px;
+		text-align: left;
+	}
+	&__text {
+		position: relative;
+		display:block;
+		box-sizing: border-box;
+		padding: 7.5px 10px;
+		color: govuk-colour('black');
+		background: currentcolor;
+		border: 2px solid currentcolor;
+		z-index: 2;
+		span {
+			color: white;
+		}
+	}
+	&__arrow {
+		position: absolute;
+		box-sizing: border-box;
+		z-index: 1;
+		width: 10px;
+		height: 10px;
+		left: 50%;
+		bottom: auto;
+		top: 100%;
+		margin: -15px 0px 0px -5px;
+		color: govuk-colour('black');
+		border: 5px solid currentcolor;
+		-webkit-transform: rotate(135deg);
+		-moz-transform: rotate(135deg);
+		-o-transform: rotate(135deg);
+		transform: rotate(135deg);
+	}
+	&--bottom &__info {
+		bottom: auto;
+		top: 100%;
+		padding-top: 10px;
+		padding-bottom: 0px;
+	}
+	&--bottom &__arrow {
+		bottom: 100%;
+		top: auto;
+		margin: 0px 0px -15px -5px;
+	}
+	&--open &__info {
+		visibility: visible;
+		width:200px;
+		overflow: visible;
+	}
+	&.defra-toggletip-target {
+		cursor: help;
+		border-bottom: 1px dashed govuk-colour('black');
+		padding-bottom: 1px;
+		outline: 3px solid transparent;
+		&:focus, &:hover:focus-visible {
+			border-bottom: 1px solid govuk-colour('black');
+			box-shadow: 0 2px 0 govuk-colour('black'), 0 6px 0 govuk-colour('yellow');
+		}
+		&:focus:not(:focus-visible):not(:hover) {
+			border-bottom: 1px dashed govuk-colour('black');
+			box-shadow: none;
+		}
+		&:hover {
+			border-bottom: 1px solid govuk-colour('black');
+			box-shadow: 0 2px 0 govuk-colour('black');
+		}
+	}
+}
+
+//Utility classes
+
+.align-middle {
+  vertical-align: middle;
+}
+
+.govuk-caption-s {
+  @extend .govuk-caption-m;
+  @include govuk-font($size: 16);
+}

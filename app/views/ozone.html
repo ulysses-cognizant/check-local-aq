@@ -1,6 +1,5 @@
 {% extends "layouts/content.html" %}
-{% from "components/pollutant_table/macro.njk" import appPollutant_table %}
-{% set caption = "Gases" %}
+{% set caption = "" %}
 {% set title = "Ozone (O₃)" %}
 
 {% set displayBacklink = false %}
@@ -45,56 +44,6 @@
         <li>heart issues</li>
       </ul>
       <p class="govuk-body govuk-!-margin-bottom-8">With long-term exposure at high levels, your lungs may start showing symptoms like coughing or difficulty breathing as it reduces the ability of the lungs to function.</p>
-      {{ appPollutant_table({
-        caption: "Ozone levels<p class='govuk-!-margin-top-2'>Based on the running 8-hourly mean.</p>",
-    bands: [
-        { label: 'Low', value: "0 - 33" },
-        { label: 'Low', value: "34 - 66" },
-        { label: 'Low', value: "67 - 100" },
-        { label: 'Moderate', value: "101 - 120" },
-        { label: 'Moderate', value: "121 - 140" },
-        { label: 'Moderate', value: "141 - 160" },
-        { label: 'High', value: "161 - 187" },
-        { label: 'High', value: "188 - 213" },
-        { label: 'High', value: "214 - 240" },
-        { label: 'Very high', value: "241 or more" }
-    ]
-      }) }}
     </div>
-    <div class="govuk-grid-column-one-third">
-      {{ xGovukRelatedNavigation({
-        sections: [{
-          items: [{
-            text: "",
-            href: ""
-          }],
-          subsections: [{
-            title: "Gases",
-            items: [
-            {
-                text: "Nitrogen dioxide (NO₂)",
-                href: "/nitrogen-dioxide"
-              },
-              {
-                text: "Sulphur dioxide (SO₂)",
-                href: "/sulphur-dioxide"
-              }]
-            }, 
-            {
-            title: "Particles",
-                items: [{
-                text: "Particulate matter (PM2.5)",
-                href: "/particulate-matter2"
-            },
-            {
-                text: "Particulate matter (PM10)",
-                href: "/particulate-matter10"
-            }
-            ]
-          }]
-        }]
-      }) }}
-    </div>
-  </div>
 {% endblock %}
 
