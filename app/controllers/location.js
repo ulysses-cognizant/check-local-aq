@@ -2,8 +2,7 @@ const axios = require('axios');
 const { getAirQuality } = require('../data/air-quality.js');
 const monitoringSites = require('../data/monitoring-sites.js');
 const airQualityData = require('../data/air-quality.js');
-const apiKey = '21QLuXkjHjzpy4AyvOnQSKqLkRdiG5KV'; 
-// const apiKey = process.env.OS_API_KEY;
+const apiKey = process.env.OS_API_KEY;
 
 
 exports.getLocationData = async (req, res) => {
