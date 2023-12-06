@@ -2,7 +2,7 @@ const monitoringSites = [
   {
       "site_name": "Leamington Spa",
       "distance": 1.35,
-      "site_type": "This monitoring site is based in an urban area. An urban area is a city or a town, where there are many 2-storey buildings. For the measurement of ozone, an urban area includes parks, residential  houses and commercial buildings.",
+      "site_type": "This monitoring site is based in an urban area. An urban area is a city or a town and can include parks, residential houses and commercial buildings.",
       "pollutants": [
           {
               "type": "Ozone",
