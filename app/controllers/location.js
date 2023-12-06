@@ -4,7 +4,6 @@ const monitoringSites = require('../data/monitoring-sites.js');
 const airQualityData = require('../data/air-quality.js');
 const apiKey = process.env.OS_API_KEY;
 
-
 exports.getLocationData = async (req, res) => {
   try {
     const originalUserLocation = req.body.location.trim();
@@ -40,7 +39,14 @@ exports.getLocationData = async (req, res) => {
 
     const response = await axios.get(apiUrl);
 
-    let matches = response.data.results.filter(item => {
+    const { results } = response.data;
+
+    if (!results || results.length === 0) {
+      res.render('location-not-found', { userLocation: originalUserLocation });
+      return;
+    }
+
+    let matches = results.filter(item => {
       const name = item.GAZETTEER_ENTRY.NAME1.toUpperCase();
       return name.includes(userLocation) || userLocation.includes(name);
     });
@@ -62,12 +68,9 @@ exports.getLocationData = async (req, res) => {
     }
   } catch (error) {
     console.error('Error fetching data:', error);
-    res.status(500).redirect('location-details-notfound'); 
+    res.status(500).render('error', { error: 'An error occurred while fetching location data.' });
   }
 };
-
-
-
 
 exports.getLocationDetails = (req, res) => {
   try {
@@ -83,6 +86,7 @@ exports.getLocationDetails = (req, res) => {
     }
   } catch (error) {
     console.error('Error retrieving location details:', error);
-    res.status(500).redirect('location-not-found'); 
+    res.status(500).render('error', { error: 'An error occurred while retrieving location details.' });
   }
 };
+
