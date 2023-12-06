@@ -2,7 +2,7 @@ const monitoringSites = [
   {
       "site_name": "Leamington Spa",
       "distance": 1.35,
-      "site_type": "This monitoring site is based in an urban area.",
+      "site_type": "This monitoring site is based in an urban area. An urban area is a city or a town, where there are many 2-storey buildings. For the measurement of ozone, an urban area includes parks, residential  houses and commercial buildings.",
       "pollutants": [
           {
               "type": "Ozone",
@@ -45,7 +45,7 @@ const monitoringSites = [
   {
       "site_name": "Leamington Spa Rugby Road",
       "distance": 2.28,
-      "site_type": "This monitoring site is based near vehicle traffic.",
+      "site_type": "This monitoring site is based near vehicle traffic. It is located close to a road, motorway or highway. This means we know that recorded pollutants come from this source.",
       "pollutants": [
           {
               "type": "Nitrogen dioxide",
@@ -79,7 +79,7 @@ const monitoringSites = [
   {
       "site_name": "Coventry Binley Road",
       "distance": 14.61,
-      "site_type": "This monitoring site is based near vehicle traffic.",
+      "site_type": "This monitoring site is based near vehicle traffic. It is located close to a road, motorway or highway. This means we know that recorded pollutants come from this source.",
       "pollutants": [
           {
               "type": "Nitrogen dioxide",
