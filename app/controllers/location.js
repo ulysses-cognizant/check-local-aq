@@ -54,7 +54,6 @@ exports.getLocationData = async (req, res) => {
     req.session.locationData = matches; // Store the data in session
 
     if (matches.length === 1) {
-      console.log("Monitoring Sites Data:", JSON.stringify(monitoringSites, null, 2));
       res.render('location', { result: matches[0], airQuality: airQuality, airQualityData: airQualityData.commonMessages, monitoringSites: monitoringSites });
     } else if (matches.length > 1) {
       res.render('multiple_locations', { results: matches, userLocation: originalUserLocation, airQuality: airQuality, airQualityData: airQualityData.commonMessages, monitoringSites: monitoringSites });
@@ -80,7 +79,7 @@ exports.getLocationDetails = (req, res) => {
       const airQuality = getAirQuality(/* Retrieved from session or another source */);
       res.render('location', { result: locationDetails, airQuality: airQuality, airQualityData: airQualityData.commonMessages, monitoringSites: monitoringSites });
     } else {
-      res.render('location-details-notfound');
+      res.render('location-not-found');
     }
   } catch (error) {
     console.error('Error retrieving location details:', error);
