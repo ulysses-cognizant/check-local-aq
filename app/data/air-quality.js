@@ -11,7 +11,7 @@ const commonMessages = {
     },
     moderate: {
         values: [4, 5, 6],
-        advice: "The general population can continue their usual activities.",
+        advice: "For most people, moderate levels of air pollution is not an issue.",
         atrisk: {
             adults: "Adults with heart problems, who experience symptoms, should consider reducing strenuous physical activity, particularly outdoors.",
             asthma: "People with asthma should be prepared to use their reliever inhaler.",
