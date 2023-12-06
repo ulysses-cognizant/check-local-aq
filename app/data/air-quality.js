@@ -13,7 +13,7 @@ const commonMessages = {
         values: [4, 5, 6],
         advice: "For most people, moderate levels of air pollution is not an issue.",
         atrisk: {
-            adults: "Adults who have heart problems and feel unwell should consider doing less exercise, especially outside.",
+            adults: "Adults who have heart problems and feel unwell should consider doing less strenuous exercise, especially outside.",
             asthma: "People with asthma should be prepared to use their reliever inhaler.",
             oldPeople: "Older people should consider doing less strenuous activity, especially outside."
         },
