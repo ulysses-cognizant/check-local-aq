@@ -15,7 +15,7 @@ const commonMessages = {
         atrisk: {
             adults: "Adults who have heart problems and feel unwell should consider doing less exercise, especially outside.",
             asthma: "People with asthma should be prepared to use their reliever inhaler.",
-            oldPeople: "Older people should consider doing less hard physical activity, especially outside."
+            oldPeople: "Older people should consider doing less strenuous activity, especially outside."
         },
         outlook: "The influx of warm air from the continent is resulting in moderate air pollution levels throughout many areas today."
     },
