@@ -13,9 +13,9 @@ const commonMessages = {
         values: [4, 5, 6],
         advice: "For most people, moderate levels of air pollution is not an issue.",
         atrisk: {
-            adults: "Adults with heart problems, who experience symptoms, should consider reducing strenuous physical activity, particularly outdoors.",
+            adults: "Adults who have heart problems and feel unwell should consider doing less exercise, especially outside.",
             asthma: "People with asthma should be prepared to use their reliever inhaler.",
-            oldPeople: "Older people should consider reducing strenuous physical activity, particularly outdoors."
+            oldPeople: "Older people should consider doing less hard physical activity, especially outside."
         },
         outlook: "The influx of warm air from the continent is resulting in moderate air pollution levels throughout many areas today."
     },
