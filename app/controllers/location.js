@@ -83,6 +83,6 @@ exports.getLocationDetails = (req, res) => {
     }
   } catch (error) {
     console.error('Error retrieving location details:', error);
-    res.status(500).redirect('location-details-notfound'); 
+    res.status(500).redirect('location-not-found'); 
   }
 };

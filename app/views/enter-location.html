@@ -1,13 +1,43 @@
 {% extends "layouts/main.html" %}
 {% set displayBreadcrumbs = false %}
-{% set title = "We could not find" + " " + data['q'] %}
 
 {% block content %}
 <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+{% from "govuk/components/error-summary/macro.njk" import govukErrorSummary %}
+
+{{ govukErrorSummary({
+  titleText: "There is a problem",
+  errorList: [
+    {
+      text: "Enter a location or postcode",
+      href: "enter-location.html#location"
+    }
+  ]
+}) }}
+  </div>
+</div>
+<div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds-from-desktop">
-    <h1 class="govuk-heading-l">No location entered</h1>
-    <p>You must enter a place name or postcode within the United Kingdom.</p>
-    <p><a href="/where">Try searching again</a></p>
+
+{% from "govuk/components/input/macro.njk" import govukInput %}
+    <form action="/location" method="post">
+      {{ appSearch({
+          label: {
+              text: "Where do you want to check?",
+              classes: "govuk-label--l govuk-!-margin-bottom-6",
+              isPageHeading: true
+          },
+          id: "location",
+          name: 'location',
+          errorMessage: {
+            text: "Enter a location or postcode"
+          }
+      }) }}
+      <!-- Hidden input to pass the air quality value -->
+      <input type="hidden" name="aq" value="{{ airQuality.value }}" />
+  </form>
   </div>
 </div>
 {% endblock %}
