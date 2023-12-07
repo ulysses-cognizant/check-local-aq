@@ -102,41 +102,40 @@ const monitoringSites = [
 const pollutantTypes = {
     "nitrogen-dioxide": {
         "title": "Nitrogen dioxide",
-        "href": "/nitrogen-dioxide",
+        "href": "/pollutants/nitrogen-dioxide",
         "low_range": "0 to 200"
     },
     "particulate-matter10": {
         "title": "PM10",
-        "href": "/particulate-matter10",
+        "href": "/pollutants/particulate-matter10",
         "low_range": "0 to 50"
     },
     "particulate-matter2": {
         "title": "PM2.5",
-        "href": "/particulate-matter2",
+        "href": "/pollutants/particulate-matter2",
         "low_range": "0 to 35"
     },
     "ozone": {
         "title": "Ozone",
-        "href": "/ozone",
+        "href": "/pollutants/ozone",
         "low_range": "0 to 100"
     },
     "sulphur-dioxide": {
         "title": "Sulphur dioxide",
-        "href": "/sulphur-dioxide",
+        "href": "/pollutants/sulphur-dioxide",
         "low_range": "0 to 100"
-      }
-
+    }
   };
 
 // Used to populate toggletips on monitoring sites
 
 const siteTypeDescriptions = {
-    "urban-site": "This monitoring site is based in an urban area. An urban area is a city or a town and can include parks, residential houses and commercial buildings.",
-    "suburban-site": "This monitoring site is based near vehicle traffic. It is located close to a road, motorway or highway. This means we know that recorded pollutants come from this source.",
+    "urban-site": "This monitoring site is based in an urban area. An urban area is a city or a town, where there are many 2-storey buildings. For the measurement of ozone, an urban area includes parks, residential houses and commercial buildings.",
+    "suburban-site": "This monitoring site is based in a suburban location. Suburban areas are located either on their own or on the outskirts of a city or urban area. They are areas of different-sized buildings that may be close to farms, ales and woods.",
     "traffic-site": "This monitoring site is based near vehicle traffic. It is located close to a road, motorway or highway. This means we know that recorded pollutants come from this source.",
-    "rural-site": "This monitoring site is based near vehicle traffic. It is located close to a road, motorway or highway. This means we know that recorded pollutants come from this source.",
-    "industrial-site": "This monitoring site is based near vehicle traffic. It is located close to a road, motorway or highway. This means we know that recorded pollutants come from this source.",
-    "background-site": "This monitoring site is based near vehicle traffic. It is located close to a road, motorway or highway. This means we know that recorded pollutants come from this source."
+    "rural-site": "This monitoring site is in rural location. A rural site can be in a small settlement or area with natural ecosystems, forests or crops. The sites are more than 20 kilometres from cities and towns and more than 5 kilometres away from industrial sites, motorways and major roads.",
+    "industrial-site": "This monitoring site is based in an industrial location. The pollutants are measured downwind of the industrial source and the nearest residential area.",
+    "background-site": "This monitoring site is based in a background location. It is located to make sure pollutant measurements do not come from one specific source. The site is upwind from pollution sources in cities, industrial sources and rural areas."
   }
 
   module.exports = { monitoringSites, siteTypeDescriptions, pollutantTypes };
