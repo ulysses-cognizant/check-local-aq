@@ -6,7 +6,6 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter();
 const locationController = require('./controllers/location');
-const measurementStations = require('./data/measurement-stations.js');
 const airQuality = require('./data/air-quality.js');
 
 // // Air quality

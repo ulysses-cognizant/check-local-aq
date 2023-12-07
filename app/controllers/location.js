@@ -1,6 +1,6 @@
 const axios = require('axios');
 const { getAirQuality } = require('../data/air-quality.js');
-const monitoringSites = require('../data/monitoring-sites.js');
+const { monitoringSites, siteTypeDescriptions, pollutantTypes } = require('../data/monitoring-sites.js');
 const airQualityData = require('../data/air-quality.js');
 const apiKey = process.env.OS_API_KEY;
 
@@ -60,9 +60,9 @@ exports.getLocationData = async (req, res) => {
     req.session.locationData = matches; // Store the data in session
 
     if (matches.length === 1) {
-      res.render('location', { result: matches[0], airQuality: airQuality, airQualityData: airQualityData.commonMessages, monitoringSites: monitoringSites });
+      res.render('location', { result: matches[0], airQuality: airQuality, airQualityData: airQualityData.commonMessages, monitoringSites: monitoringSites, siteTypeDescriptions: siteTypeDescriptions, pollutantTypes: pollutantTypes });
     } else if (matches.length > 1) {
-      res.render('multiple_locations', { results: matches, userLocation: originalUserLocation, airQuality: airQuality, airQualityData: airQualityData.commonMessages, monitoringSites: monitoringSites });
+      res.render('multiple_locations', { results: matches, userLocation: originalUserLocation, airQuality: airQuality, airQualityData: airQualityData.commonMessages, monitoringSites: monitoringSites, siteTypeDescriptions: siteTypeDescriptions, pollutantTypes: pollutantTypes });
     } else {
       res.render('location-not-found', { userLocation: originalUserLocation });
     }
@@ -80,7 +80,7 @@ exports.getLocationDetails = (req, res) => {
 
     if (locationDetails) {
       const airQuality = getAirQuality(/* Retrieved from session or another source */);
-      res.render('location', { result: locationDetails, airQuality: airQuality, airQualityData: airQualityData.commonMessages, monitoringSites: monitoringSites });
+      res.render('location', { result: locationDetails, airQuality: airQuality, airQualityData: airQualityData.commonMessages, monitoringSites: monitoringSites, siteTypeDescriptions: siteTypeDescriptions, pollutantTypes: pollutantTypes });
     } else {
       res.render('location-not-found');
     }

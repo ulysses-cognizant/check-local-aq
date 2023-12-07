@@ -7,8 +7,8 @@
   {{ toggletip(
     '',
     'More information about measurement',
-    'Readings are measured every hour. The unit µg/m3 stands for micrograms (one millionth of a gram) per cubic metre of air.',
-    'Latest (μg/㎥)'
+    'Readings are measured every hour. The unit µg/&#13221; stands for micrograms (one millionth of a gram) per cubic metre of air.',
+    'Latest μg/&#13221;'
   )}}
 {% endset %}
 
@@ -35,7 +35,7 @@
   {{ toggletip(
     '',
     'More information about ' + site.site_name,
-    site.site_type,
+    siteTypeDescriptions[site.site_type],
     site.site_name
   )}}
 {% endset %}
@@ -43,18 +43,27 @@
   <p class="govuk-caption-m govuk-!-margin-bottom-2">{{ site.distance }} miles away</p>
   {% set rows = [] %}
   {% for pollutant in site.pollutants %}
-    {% set row = [
-      { html: "<p class='govuk-body govuk-!-margin-bottom-1'><a href='" + pollutant.href + "'>" + pollutant.type + "</a></p><p class='govuk-caption-s govuk-!-margin-bottom-1'></p>", 
-      classes: "align-middle" },
-      { html: "<p class='govuk-body govuk-!-margin-bottom-1'>" + pollutant.measurement + "</p><p class='govuk-caption-s govuk-!-margin-bottom-1'>Low range " + pollutant.low_range + "</p>", 
-      classes: "align-middle" },
-      { html: pollutant.trend, classes: "align-middle" },
-      { html: "<strong class='daqi-tag daqi-tag--" + (pollutant.aqi if pollutant.aqi else "default-aqi-value") + "'>" + pollutant.band + "</strong>", 
-      classes: "align-middle" }
-    ] %}
-    {% set _ = rows.push(row) %}
+      {% set pollutantDetail = pollutantTypes[pollutant.type] %} {# Retrieve details from pollutantTypes #}
+      {% set row = [
+          { 
+              html: "<p class='govuk-body govuk-!-margin-bottom-1'><a href='" + pollutantDetail.href + "'>" + pollutantDetail.title + "</a></p><p class='govuk-caption-s govuk-!-margin-bottom-1'></p>",
+              classes: "align-middle" 
+          },
+          { 
+              html: "<p class='govuk-body govuk-!-margin-bottom-1'>" + pollutant.measurement + "</p><p class='govuk-caption-s govuk-!-margin-bottom-1'>Low range " + pollutantDetail.low_range + "</p>",
+              classes: "align-middle" 
+          },
+          { 
+              html: pollutant.trend, 
+              classes: "align-middle" 
+          },
+          { 
+              html: "<strong class='daqi-tag daqi-tag--" + (pollutant.aqi if pollutant.aqi else "default-aqi-value") + "'>" + pollutant.band + "</strong>",
+              classes: "align-middle" 
+          }
+      ] %}
+      {% set _ = rows.push(row) %}
   {% endfor %}
-
   {{ govukTable({
       classes: "govuk-!-margin-bottom-2",
       firstCellIsHeader: false,
