@@ -3,13 +3,13 @@
 
 const monitoringSites = [
   {
-      "site_name": "Leamington Spa",
+      "site_name": "Nottingham Centre",
       "distance": 1.35,
-      "site_type": "urban-site",
+      "site_type": "background-site",
       "pollutants": [
           {
               "type": "ozone",
-              "measurement": 34.526,
+              "measurement": 39.914,
               "trend": "Rising",
               "band": "Low",
               "aqi": 2,
@@ -17,82 +17,74 @@ const monitoringSites = [
           },
           {
               "type": "nitrogen-dioxide",
-              "measurement": 27.349,
+              "measurement": 25.436,
               "trend": "Steady",
               "band": "Low",
               "aqi": 1,
               "low_range": "0 to 200"
           },
           {
-            "type": "particulate-matter10",
-            "measurement": 11.800,
+            "type": "Sulphur dioxide",
+            "measurement": 2.395,
             "trend": "Falling",
             "band": "Low",
             "aqi": 1,
             "low_range": "0 to 50"
         },
         {
-          "type": "particulate-matter2",
+          "type": "particulate-matter10",
           "measurement": 8.113,
           "trend": "Falling",
           "band": "Low",
           "aqi": 1,
           "low_range": "0 to 35"
-      }
+      },
+      {
+        "type": "particulate-matter2",
+        "measurement": 5.755,
+        "trend": "Falling",
+        "band": "Low",
+        "aqi": 1,
+        "low_range": "0 to 35"
+    }
       ]
   },
   {
-      "site_name": "Leamington Spa Rugby Road",
-      "distance": 2.28,
+      "site_name": "Nottingham Western Boulevard",
+      "distance": 3.5,
       "site_type": "traffic-site",
       "pollutants": [
           {
               "type": "nitrogen-dioxide",
-              "measurement": 21.611,
-              "trend": "Steady",
+              "measurement": 85.611,
+              "trend": "Rising",
               "band": "Low",
-              "aqi": 1,
+              "aqi": 2,
               "low_range": "0 to 200"
           },
           {
             "type": "particulate-matter10",
-            "measurement": 	9.500,
+            "measurement": 30.561,
             "trend": "Rising",
             "band": "Low",
             "aqi": 1,
             "low_range": "0 to 50"
-        },
-        {
-          "type": "particulate-matter2",
-          "measurement": 6.226,
-          "trend": "Rising",
-          "band": "Low",
-          "aqi": 1,
-          "low_range": "0 to 35"
-      }
+        }
       ]
   },
   {
-      "site_name": "Coventry Binley Road",
-      "distance": 14.61,
+      "site_name": "Derby St Alkmund's Way",
+      "distance": 21.95,
       "site_type": "traffic-site",
       "pollutants": [
           {
               "type": "nitrogen-dioxide",
-              "measurement": 24.289,
-              "trend": "Steady",
+              "measurement": 72.289,
+              "trend": "Rising",
               "band": "Low",
               "aqi": 1,
               "low_range": "0 to 200"
-          },
-          {
-            "type": "particulate-matter10",
-            "measurement": 	13.527,
-            "trend": "Falling",
-            "band": "Low",
-            "aqi": 1,
-            "low_range": "0 to 50"
-        }
+          }
       ]
   }
 ]
