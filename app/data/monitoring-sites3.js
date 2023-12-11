@@ -3,10 +3,49 @@
 
 const monitoringSites = [
   {
-      "site_name": "Barnsley Gawber",
-      "distance": 2.1,
-      "site_type": "background-site",
+      "site_name": "Birmingham A4540 Roadside",
+      "distance": 3.7,
+      "site_type": "traffic-site",
       "pollutants": [
+          {
+              "type": "ozone",
+              "measurement": 39.914,
+              "trend": "Rising",
+              "band": "Low",
+              "aqi": 2,
+              "low_range": "0 to 100"
+          },
+          {
+              "type": "nitrogen-dioxide",
+              "measurement": 220.436,
+              "trend": "Falling",
+              "band": "Moderate",
+              "aqi": 4,
+              "low_range": "0 to 200"
+          },
+        {
+          "type": "particulate-matter10",
+          "measurement": 8.113,
+          "trend": "Falling",
+          "band": "Low",
+          "aqi": 1,
+          "low_range": "0 to 35"
+      },
+      {
+        "type": "particulate-matter2",
+        "measurement": 37.2,
+        "trend": "Falling",
+        "band": "Moderate",
+        "aqi": 4,
+        "low_range": "0 to 35"
+    }
+      ]
+  },
+  {
+    "site_name": "Birmingham Ladywood",
+    "distance": 5.5,
+    "site_type": "background-site",
+    "pollutants": [
         {
             "type": "ozone",
             "measurement": 39.914,
@@ -47,68 +86,29 @@ const monitoringSites = [
             "aqi": 4,
             "low_range": "0 to 35"
     }
-      ]
-  },
-  {
-    "site_name": "Sheffield Barnsley Road",
-    "distance": 9.4,
-    "site_type": "traffic-site",
-    "pollutants": [
-        {
-            "type": "nitrogen-dioxide",
-            "measurement": 219.436,
-            "trend": "Rising",
-            "band": "Moderate",
-            "aqi": 4,
-            "low_range": "0 to 200"
-        },
-        {
-            "type": "particulate-matter2",
-            "measurement": 37.2,
-            "trend": "Falling",
-            "band": "Moderate",
-            "aqi": 4,
-            "low_range": "0 to 35"
-    }
     ]
 },
   {
-      "site_name": "Sheffield Tinsley",
+      "site_name": "West Bromwich Kenrick Park",
       "distance": 8.8,
       "site_type": "background-site",
       "pollutants": [
-        {
-            "type": "ozone",
-            "measurement": 48.914,
-            "trend": "Falling",
-            "band": "Low",
-            "aqi": 2,
-            "low_range": "0 to 100"
-        },
-        {
-            "type": "nitrogen-dioxide",
-            "measurement": 259.436,
+          {
+              "type": "nitrogen-dioxide",
+              "measurement": 150.289,
+              "trend": "Rising",
+              "band": "Low",
+              "aqi": 3,
+              "low_range": "0 to 200"
+          },
+          {
+            "type": "sulphur-dioxide",
+            "measurement": 67.289,
             "trend": "Rising",
-            "band": "Moderate",
-            "aqi": 4,
-            "low_range": "0 to 200"
-        },
-        {
-            "type": "particulate-matter10",
-            "measurement": 8.113,
-            "trend": "Falling",
             "band": "Low",
             "aqi": 1,
-            "low_range": "0 to 35"
+            "low_range": "0 to 200"
         },
-        {
-            "type": "particulate-matter2",
-            "measurement": 65.2,
-            "trend": "Falling",
-            "band": "Moderate",
-            "aqi": 4,
-            "low_range": "0 to 35"
-    }
       ]
   }
 ]
