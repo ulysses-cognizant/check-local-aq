@@ -9,7 +9,7 @@ const monitoringSites = [
       "pollutants": [
         {
             "type": "ozone",
-            "measurement": 39.914,
+            "measurement": 41.78,
             "trend": "Rising",
             "band": "Low",
             "aqi": 2,
@@ -17,7 +17,7 @@ const monitoringSites = [
         },
         {
             "type": "nitrogen-dioxide",
-            "measurement": 219.436,
+            "measurement": 236.67,
             "trend": "Rising",
             "band": "Moderate",
             "aqi": 4,
@@ -25,7 +25,7 @@ const monitoringSites = [
         },
         {
             "type": "sulphur-dioxide",
-            "measurement": 220.436,
+            "measurement": 208.3,
             "trend": "Steady",
             "band": "Moderate",
             "aqi": 4,
@@ -33,7 +33,7 @@ const monitoringSites = [
         },
         {
             "type": "particulate-matter10",
-            "measurement": 8.113,
+            "measurement": 6.23,
             "trend": "Falling",
             "band": "Low",
             "aqi": 1,
@@ -41,7 +41,7 @@ const monitoringSites = [
         },
         {
             "type": "particulate-matter2",
-            "measurement": 37.2,
+            "measurement": 42.12,
             "trend": "Falling",
             "band": "Moderate",
             "aqi": 4,
