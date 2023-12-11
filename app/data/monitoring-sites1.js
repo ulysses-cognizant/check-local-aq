@@ -2,25 +2,56 @@
 // Content for monitoring sites
 
 const monitoringSites = [
-
   {
-    "site_name": "Derby St Alkmund's Way",
-    "distance": 8.10,
-    "site_type": "traffic-site",
-    "pollutants": [
-        {
-            "type": "nitrogen-dioxide",
-            "measurement": 72.289,
-            "trend": "Rising",
+      "site_name": "Nottingham Centre",
+      "distance": 1.35,
+      "site_type": "background-site",
+      "pollutants": [
+          {
+              "type": "ozone",
+              "measurement": 39.914,
+              "trend": "Rising",
+              "band": "Low",
+              "aqi": 2,
+              "low_range": "0 to 100"
+          },
+          {
+              "type": "nitrogen-dioxide",
+              "measurement": 25.436,
+              "trend": "Steady",
+              "band": "Low",
+              "aqi": 1,
+              "low_range": "0 to 200"
+          },
+          {
+            "type": "Sulphur dioxide",
+            "measurement": 2.395,
+            "trend": "Falling",
             "band": "Low",
             "aqi": 1,
-            "low_range": "0 to 200"
-        }
-    ]
-},
+            "low_range": "0 to 50"
+        },
+        {
+          "type": "particulate-matter10",
+          "measurement": 8.113,
+          "trend": "Falling",
+          "band": "Low",
+          "aqi": 1,
+          "low_range": "0 to 35"
+      },
+      {
+        "type": "particulate-matter2",
+        "measurement": 5.755,
+        "trend": "Falling",
+        "band": "Low",
+        "aqi": 1,
+        "low_range": "0 to 35"
+    }
+      ]
+  },
   {
       "site_name": "Nottingham Western Boulevard",
-      "distance": 14.18,
+      "distance": 3.5,
       "site_type": "traffic-site",
       "pollutants": [
           {
@@ -42,52 +73,20 @@ const monitoringSites = [
       ]
   },
   {
-    "site_name": "Nottingham Centre",
-    "distance": 15.81,
-    "site_type": "background-site",
-    "pollutants": [
-        {
-            "type": "ozone",
-            "measurement": 39.914,
-            "trend": "Rising",
-            "band": "Low",
-            "aqi": 2,
-            "low_range": "0 to 100"
-        },
-        {
-            "type": "nitrogen-dioxide",
-            "measurement": 25.436,
-            "trend": "Steady",
-            "band": "Low",
-            "aqi": 1,
-            "low_range": "0 to 200"
-        },
-        {
-          "type": "Sulphur dioxide",
-          "measurement": 2.395,
-          "trend": "Falling",
-          "band": "Low",
-          "aqi": 1,
-          "low_range": "0 to 50"
-      },
-      {
-        "type": "particulate-matter10",
-        "measurement": 8.113,
-        "trend": "Falling",
-        "band": "Low",
-        "aqi": 1,
-        "low_range": "0 to 35"
-    },
-    {
-      "type": "particulate-matter2",
-      "measurement": 5.755,
-      "trend": "Falling",
-      "band": "Low",
-      "aqi": 1,
-      "low_range": "0 to 35"
+      "site_name": "Derby St Alkmund's Way",
+      "distance": 21.95,
+      "site_type": "traffic-site",
+      "pollutants": [
+          {
+              "type": "nitrogen-dioxide",
+              "measurement": 72.289,
+              "trend": "Rising",
+              "band": "Low",
+              "aqi": 1,
+              "low_range": "0 to 200"
+          }
+      ]
   }
-    ]
-},
 ]
 
 // Pollutant reference data
