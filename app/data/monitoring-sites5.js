@@ -2,48 +2,33 @@
 // Content for monitoring sites
 
 const monitoringSites = [
+
   {
-      "site_name": "Birmingham A4540 Roadside",
-      "distance": 3.7,
+      "site_name": "Nottingham Western Boulevard",
+      "distance": 3.5,
       "site_type": "traffic-site",
       "pollutants": [
           {
-              "type": "ozone",
-              "measurement": 39.914,
-              "trend": "Rising",
-              "band": "Low",
-              "aqi": 2,
-              "low_range": "0 to 100"
-          },
-          {
               "type": "nitrogen-dioxide",
-              "measurement": 220.436,
-              "trend": "Falling",
+              "measurement": 219.611,
+              "trend": "Rising",
               "band": "Moderate",
               "aqi": 4,
               "low_range": "0 to 200"
           },
-        {
-          "type": "particulate-matter10",
-          "measurement": 8.113,
-          "trend": "Falling",
-          "band": "Low",
-          "aqi": 1,
-          "low_range": "0 to 35"
-      },
-      {
-        "type": "particulate-matter2",
-        "measurement": 37.2,
-        "trend": "Falling",
-        "band": "Moderate",
-        "aqi": 4,
-        "low_range": "0 to 35"
-    }
+          {
+            "type": "particulate-matter10",
+            "measurement": 30.561,
+            "trend": "Rising",
+            "band": "Low",
+            "aqi": 1,
+            "low_range": "0 to 50"
+        }
       ]
   },
   {
-    "site_name": "Birmingham Ladywood",
-    "distance": 5.5,
+    "site_name": "Nottingham Centre",
+    "distance": 4.2,
     "site_type": "background-site",
     "pollutants": [
         {
@@ -56,61 +41,53 @@ const monitoringSites = [
         },
         {
             "type": "nitrogen-dioxide",
-            "measurement": 219.436,
-            "trend": "Rising",
+            "measurement": 201.436,
+            "trend": "Falling",
             "band": "Moderate",
             "aqi": 4,
             "low_range": "0 to 200"
         },
         {
-            "type": "sulphur-dioxide",
-            "measurement": 220.436,
-            "trend": "Steady",
-            "band": "Moderate",
-            "aqi": 4,
-            "low_range": "0 to 200"
-        },
-        {
-            "type": "particulate-matter10",
-            "measurement": 8.113,
-            "trend": "Falling",
-            "band": "Low",
-            "aqi": 1,
-            "low_range": "0 to 35"
-        },
-        {
-            "type": "particulate-matter2",
-            "measurement": 37.2,
-            "trend": "Falling",
-            "band": "Moderate",
-            "aqi": 4,
-            "low_range": "0 to 35"
-    }
+          "type": "sulphur-dioxide",
+          "measurement": 2.395,
+          "trend": "Falling",
+          "band": "Low",
+          "aqi": 1,
+          "low_range": "0 to 50"
+      },
+      {
+        "type": "particulate-matter10",
+        "measurement": 8.113,
+        "trend": "Falling",
+        "band": "Low",
+        "aqi": 1,
+        "low_range": "0 to 35"
+    },
+    {
+      "type": "particulate-matter2",
+      "measurement": 38.1,
+      "trend": "Falling",
+      "band": "Moderate",
+      "aqi": 4,
+      "low_range": "0 to 35"
+  }
     ]
 },
-  {
-      "site_name": "West Bromwich Kenrick Park",
-      "distance": 8.8,
-      "site_type": "background-site",
-      "pollutants": [
-          {
-              "type": "nitrogen-dioxide",
-              "measurement": 150.289,
-              "trend": "Rising",
-              "band": "Low",
-              "aqi": 3,
-              "low_range": "0 to 200"
-          },
-          {
-            "type": "sulphur-dioxide",
-            "measurement": 67.289,
+{
+    "site_name": "Derby St Alkmund's Way",
+    "distance": 9.7,
+    "site_type": "traffic-site",
+    "pollutants": [
+        {
+            "type": "nitrogen-dioxide",
+            "measurement": 272.289,
             "trend": "Rising",
-            "band": "Low",
-            "aqi": 1,
+            "band": "Moderate",
+            "aqi": 4,
             "low_range": "0 to 200"
-        },
-      ]
-  }
+        }
+    ]
+}
 ]
 
 // Pollutant reference data
