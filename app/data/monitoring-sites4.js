@@ -2,38 +2,14 @@
 // Content for monitoring sites
 
 const monitoringSites = [
-
   {
-      "site_name": "Nottingham Western Boulevard",
-      "distance": 3.5,
-      "site_type": "traffic-site",
+      "site_name": "Barnsley Gawber",
+      "distance": 2.1,
+      "site_type": "background-site",
       "pollutants": [
-          {
-              "type": "nitrogen-dioxide",
-              "measurement": 219.611,
-              "trend": "Rising",
-              "band": "Moderate",
-              "aqi": 4,
-              "low_range": "0 to 200"
-          },
-          {
-            "type": "particulate-matter10",
-            "measurement": 30.561,
-            "trend": "Rising",
-            "band": "Low",
-            "aqi": 1,
-            "low_range": "0 to 50"
-        }
-      ]
-  },
-  {
-    "site_name": "Nottingham Centre",
-    "distance": 4.2,
-    "site_type": "background-site",
-    "pollutants": [
         {
             "type": "ozone",
-            "measurement": 39.914,
+            "measurement": 41.78,
             "trend": "Rising",
             "band": "Low",
             "aqi": 2,
@@ -41,53 +17,100 @@ const monitoringSites = [
         },
         {
             "type": "nitrogen-dioxide",
-            "measurement": 201.436,
-            "trend": "Falling",
+            "measurement": 236.67,
+            "trend": "Rising",
             "band": "Moderate",
             "aqi": 4,
             "low_range": "0 to 200"
         },
         {
-          "type": "sulphur-dioxide",
-          "measurement": 2.395,
-          "trend": "Falling",
-          "band": "Low",
-          "aqi": 1,
-          "low_range": "0 to 50"
-      },
-      {
-        "type": "particulate-matter10",
-        "measurement": 8.113,
-        "trend": "Falling",
-        "band": "Low",
-        "aqi": 1,
-        "low_range": "0 to 35"
-    },
-    {
-      "type": "particulate-matter2",
-      "measurement": 38.1,
-      "trend": "Falling",
-      "band": "Moderate",
-      "aqi": 4,
-      "low_range": "0 to 35"
-  }
-    ]
-},
-{
-    "site_name": "Derby St Alkmund's Way",
-    "distance": 9.7,
+            "type": "sulphur-dioxide",
+            "measurement": 208.3,
+            "trend": "Steady",
+            "band": "Moderate",
+            "aqi": 4,
+            "low_range": "0 to 200"
+        },
+        {
+            "type": "particulate-matter10",
+            "measurement": 6.23,
+            "trend": "Falling",
+            "band": "Low",
+            "aqi": 1,
+            "low_range": "0 to 35"
+        },
+        {
+            "type": "particulate-matter2",
+            "measurement": 42.12,
+            "trend": "Falling",
+            "band": "Moderate",
+            "aqi": 4,
+            "low_range": "0 to 35"
+    }
+      ]
+  },
+  {
+    "site_name": "Sheffield Barnsley Road",
+    "distance": 9.4,
     "site_type": "traffic-site",
     "pollutants": [
         {
             "type": "nitrogen-dioxide",
-            "measurement": 272.289,
+            "measurement": 219.436,
             "trend": "Rising",
             "band": "Moderate",
             "aqi": 4,
             "low_range": "0 to 200"
-        }
+        },
+        {
+            "type": "particulate-matter2",
+            "measurement": 37.2,
+            "trend": "Falling",
+            "band": "Moderate",
+            "aqi": 4,
+            "low_range": "0 to 35"
+    }
     ]
-}
+},
+  {
+      "site_name": "Sheffield Tinsley",
+      "distance": 8.8,
+      "site_type": "background-site",
+      "pollutants": [
+        {
+            "type": "ozone",
+            "measurement": 48.914,
+            "trend": "Falling",
+            "band": "Low",
+            "aqi": 2,
+            "low_range": "0 to 100"
+        },
+        {
+            "type": "nitrogen-dioxide",
+            "measurement": 259.436,
+            "trend": "Rising",
+            "band": "Moderate",
+            "aqi": 4,
+            "low_range": "0 to 200"
+        },
+        {
+            "type": "particulate-matter10",
+            "measurement": 8.113,
+            "trend": "Falling",
+            "band": "Low",
+            "aqi": 1,
+            "low_range": "0 to 35"
+        },
+        {
+            "type": "particulate-matter2",
+            "measurement": 65.2,
+            "trend": "Falling",
+            "band": "Moderate",
+            "aqi": 4,
+            "low_range": "0 to 35"
+    }
+      ]
+  }
 ]
 
 // Pollutant reference data
