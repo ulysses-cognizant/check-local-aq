@@ -3,9 +3,9 @@
 
 const monitoringSites = [
   {
-      "site_name": "Birmingham A4540 Roadside",
-      "distance": 3.7,
-      "site_type": "traffic-site",
+      "site_name": "Glazebury",
+      "distance": 3.3,
+      "site_type": "rural-site",
       "pollutants": [
           {
               "type": "ozone",
@@ -42,9 +42,9 @@ const monitoringSites = [
       ]
   },
   {
-    "site_name": "Birmingham Ladywood",
-    "distance": 5.5,
-    "site_type": "background-site",
+    "site_name": "Salford Eccles",
+    "distance": 5.3,
+    "site_type": "urban-site",
     "pollutants": [
         {
             "type": "ozone",
@@ -89,9 +89,9 @@ const monitoringSites = [
     ]
 },
   {
-      "site_name": "West Bromwich Kenrick Park",
-      "distance": 8.8,
-      "site_type": "background-site",
+      "site_name": "Bury Whitefield Roadside",
+      "distance": 7.6,
+      "site_type": "traffic-site",
       "pollutants": [
           {
               "type": "nitrogen-dioxide",
@@ -101,14 +101,22 @@ const monitoringSites = [
               "aqi": 3,
               "low_range": "0 to 200"
           },
-          {
-            "type": "sulphur-dioxide",
-            "measurement": 67.289,
-            "trend": "Rising",
+        {
+            "type": "particulate-matter10",
+            "measurement": 7.623,
+            "trend": "Falling",
             "band": "Low",
             "aqi": 1,
-            "low_range": "0 to 200"
+            "low_range": "0 to 35"
         },
+        {
+            "type": "particulate-matter2",
+            "measurement": 41.8,
+            "trend": "Falling",
+            "band": "Moderate",
+            "aqi": 4,
+            "low_range": "0 to 35"
+    }
       ]
   }
 ]
