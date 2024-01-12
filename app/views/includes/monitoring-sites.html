@@ -43,14 +43,14 @@
   <p class="govuk-caption-m govuk-!-margin-bottom-2">{{ site.distance }} miles away</p>
   {% set rows = [] %}
   {% for pollutant in site.pollutants %}
-      {% set pollutantDetail = pollutantTypes[pollutant.type] %} {# Retrieve details from pollutantTypes #}
+      {% set pollutantDetail = pollutantTypes[pollutant.type] %}
       {% set row = [
           { 
               html: "<p class='govuk-body govuk-!-margin-bottom-1'><a href='" + pollutantDetail.href + "'>" + pollutantDetail.title + "</a></p><p class='govuk-caption-s govuk-!-margin-bottom-1'></p>",
               classes: "align-middle" 
           },
           { 
-              html: "<p class='govuk-body govuk-!-margin-bottom-1'>" + pollutant.measurement + "</p><p class='govuk-caption-s govuk-!-margin-bottom-1'>Low range " + pollutantDetail.low_range + "</p>",
+              html: "<p class='govuk-body govuk-!-margin-bottom-1'>" + (pollutant.measurement | int) + "</p><p class='govuk-caption-s govuk-!-margin-bottom-1'>Low range " + pollutantDetail.low_range + "</p>",
               classes: "align-middle" 
           },
           { 
@@ -68,8 +68,8 @@
       classes: "govuk-!-margin-bottom-2",
       firstCellIsHeader: false,
       head: [
-        { text: "Pollutant"},
-        { html: measurementToggletip, classes: "govuk-!-width-one-third" },
+        { text: "Pollutant", classes: "govuk-!-width-one-third"},
+        { html: measurementToggletip },
         { html: trendToggletip },
         { html: levelToggletip }
       ],
