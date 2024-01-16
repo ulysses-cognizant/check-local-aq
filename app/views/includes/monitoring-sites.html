@@ -8,7 +8,7 @@
     '',
     'More information about measurement',
     'Readings are measured every hour. The unit µg/&#13221; stands for micrograms (one millionth of a gram) per cubic metre of air.',
-    'Latest μg/&#13221;'
+    'Latest'
   )}}
 {% endset %}
 
@@ -50,7 +50,7 @@
               classes: "defra-aq-levels-table__cell--pollutant" 
           },
           { 
-              html: (pollutant.measurement | int),
+              html: (pollutant.measurement | int) +  " <span class='govuk-!-font-size-16 govuk-!-font-weight-regular'>μg/&#13221;</span>",
               classes: "defra-aq-levels-table__cell--reading" 
           },
           { 
