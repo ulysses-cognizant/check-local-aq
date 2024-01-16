@@ -2,7 +2,7 @@
 
 {% from "components/pollutant/macro.njk" import appPollutant %}
 {% from "components/toggletip/macro.njk" import toggletip %}
-
+{% from "components/aq-levels-table/macro.njk" import aqLevelsTable %}
 
 {% set caption = "" %}
 {% set title = result.GAZETTEER_ENTRY.NAME1 + ", " + (result.GAZETTEER_ENTRY.COUNTY_UNITARY if result.GAZETTEER_ENTRY.COUNTY_UNITARY else result.GAZETTEER_ENTRY.DISTRICT_BOROUGH) %}
@@ -28,10 +28,11 @@
     <div class="govuk-grid-column-two-thirds-from-desktop govuk-grid-column-full govuk-!-margin-bottom-9">
       {% include "includes/daqi.html" %}
       {% if airQuality.value >= 1 and airQuality.value <= 3 %}
-          <h2 class="govuk-heading-m">Advice for {{ airQuality.readableBand }} levels of air pollution</h2>
+          <h2 class="govuk-heading-m">Health advice for {{ airQuality.readableBand }} levels of air pollution</h2>
           <p>{{ airQuality.advice }}</p>
       {% elseif airQuality.value >= 4 %}
-          <h2 class="govuk-heading-m">Advice for {{ airQuality.readableBand }} levels of air pollution</h2>
+          <h2 class="govuk-heading-m">Health advice for {{ airQuality.readableBand }} levels of air pollution</h2>
+          <p>{{ airQuality.advice }}</p>
           {% set adultsText %}
             {{ (airQuality.atrisk.adults) }}
           {% endset %}
@@ -47,7 +48,6 @@
               "<p>" + asthmaText + "</p>" +
               "<p>" + oldPeopleText + "</p>" 
           }) }}
-          <p>{{ airQuality.advice }}</p>
       {% endif %}    
       {% include "includes/daqi-index.html" %}
       <h2 class="govuk-heading-m">UK air pollution summary</h2>

@@ -1,0 +1,49 @@
+{% extends "layouts/main.html" %}
+{% set displayBreadcrumbs = false %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">
+        {{ serviceName }}
+      </h1>
+      <table id="results" class="defra-aq-levels-table" role="table" aria-labelledby="caption">
+        <caption id="caption" class="defra-aq-levels-table__caption">Results for 'Millbrook, Torpoint, Cornwall', showing <span>sea</span> levels</caption>
+        <thead class="defra-aq-levels-table__head" role="rowgroup">
+          <tr role="row" data-group-type="river,sea,groundwater">
+            <th class="defra-aq-levels-table__cell defra-aq-levels-table__cell--pollutant" scope="col" role="columnheader">Pollutant</th>
+            <th class="defra-aq-levels-table__cell defra-aq-levels-table__cell--reading" scope="col" role="columnheader">Latest μg/㎥</th>
+            <th class="defra-aq-levels-table__cell defra-aq-levels-table__cell--trend" scope="col" role="columnheader">Trend</th>
+            <th class="defra-aq-levels-table__cell defra-aq-levels-table__cell--level" scope="col" role="columnheader">Level</th>
+          </tr>
+        </thead>
+      <tbody class="defra-aq-levels-table__body" role="rowgroup">
+        <tr class="defra-aq-levels-table__row" role="row">
+          <td class="defra-aq-levels-table__cell defra-aq-levels-table__cell--pollutant" role="rowheader">
+            <a href="#">
+              Nitrogen dixoxide
+            </a>
+          </td>
+          <td class="defra-aq-levels-table__cell defra-aq-levels-table__cell--reading" role="cell">
+            39
+          </td>
+          <td class="defra-aq-levels-table__cell defra-aq-levels-table__cell--trend" role="cell">
+            Falling
+          </td>
+          <td class="defra-aq-levels-table__cell defra-aq-levels-table__cell--level" role="cell">
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+{% endblock %}
