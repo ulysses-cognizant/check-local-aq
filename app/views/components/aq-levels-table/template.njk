@@ -20,7 +20,7 @@
   <tbody class="defra-aq-levels-table__body">
     {% for row in params.rows %}
       {% if row %}
-        <tr class="defra-aq-levels__row">
+        <tr class="defra-aq-levels-table__row">
         {% for cell in row %}
           {% set commonAttributes %}
             {%- if cell.colspan %} colspan="{{ cell.colspan }}"{% endif %}
@@ -31,11 +31,7 @@
             {{- commonAttributes | safe -}}
           >{{ cell.html | safe if cell.html else cell.text }}</th>
           {% else %}
-          <td class="defra-aq-levels-table__cell
-            {%- if cell.format %} defra-aq-levels-table__cell{{ cell.format }}{% endif %}
-            {%- if cell.classes %} {{ cell.classes }}{% endif %}"
-            {{- commonAttributes | safe -}}
-          >{{ cell.html | safe if cell.html else cell.text }}</td>
+          <td class="defra-aq-levels-table__cell {%- if cell.classes %} {{ cell.classes }}{% endif %}">{{ cell.html | safe if cell.html else cell.text }}</td>
           {% endif %}
         {% endfor %}
         </tr>
