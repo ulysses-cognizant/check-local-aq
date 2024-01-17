@@ -3,9 +3,9 @@
 
 const monitoringSites = [
   {
-      "site_name": "Eastbourne",
-      "distance": 2.3,
-      "site_type": "urban-site",
+      "site_name": "Glazebury",
+      "distance": 3.3,
+      "site_type": "rural-site",
       "pollutants": [
           {
               "type": "ozone",
@@ -23,7 +23,54 @@ const monitoringSites = [
               "aqi": 4,
               "low_range": "0 to 200"
           },
-            {
+        {
+          "type": "particulate-matter10",
+          "measurement": 8.113,
+          "trend": "Falling",
+          "band": "Low",
+          "aqi": 1,
+          "low_range": "0 to 35"
+      },
+      {
+        "type": "particulate-matter2",
+        "measurement": 37.2,
+        "trend": "Falling",
+        "band": "Moderate",
+        "aqi": 4,
+        "low_range": "0 to 35"
+    }
+      ]
+  },
+  {
+    "site_name": "Salford Eccles",
+    "distance": 5.3,
+    "site_type": "urban-site",
+    "pollutants": [
+        {
+            "type": "ozone",
+            "measurement": 39.914,
+            "trend": "Rising",
+            "band": "Low",
+            "aqi": 2,
+            "low_range": "0 to 100"
+        },
+        {
+            "type": "nitrogen-dioxide",
+            "measurement": 219.436,
+            "trend": "Rising",
+            "band": "Moderate",
+            "aqi": 4,
+            "low_range": "0 to 200"
+        },
+        {
+            "type": "sulphur-dioxide",
+            "measurement": 220.436,
+            "trend": "Steady",
+            "band": "Moderate",
+            "aqi": 4,
+            "low_range": "0 to 200"
+        },
+        {
             "type": "particulate-matter10",
             "measurement": 8.113,
             "trend": "Falling",
@@ -38,68 +85,29 @@ const monitoringSites = [
             "band": "Moderate",
             "aqi": 4,
             "low_range": "0 to 35"
-        }
-      ]
-  },
-  {
-    "site_name": "Lullington Heath",
-    "distance": 3.5,
-    "site_type": "rural-site",
-    "pollutants": [
-        {
-            "type": "ozone",
-            "measurement": 36.345,
-            "trend": "Rising",
-            "band": "Low",
-            "aqi": 2,
-            "low_range": "0 to 100"
-        },
-        {
-            "type": "nitrogen-dioxide",
-            "measurement": 209.436,
-            "trend": "Rising",
-            "band": "Moderate",
-            "aqi": 4,
-            "low_range": "0 to 200"
-        },
-        {
-            "type": "sulphur-dioxide",
-            "measurement": 280.436,
-            "trend": "Steady",
-            "band": "Moderate",
-            "aqi": 4,
-            "low_range": "0 to 200"
-        },
-        {
-            "type": "particulate-matter10",
-            "measurement": 7.113,
-            "trend": "Falling",
-            "band": "Low",
-            "aqi": 1,
-            "low_range": "0 to 35"
-        },
-        {
-            "type": "particulate-matter2",
-            "measurement": 34.2,
-            "trend": "Falling",
-            "band": "Moderate",
-            "aqi": 4,
-            "low_range": "0 to 35"
     }
     ]
 },
   {
-      "site_name": "Brighton Preston Park",
-      "distance": 18.2,
-      "site_type": "urban-site",
+      "site_name": "Bury Whitefield Roadside",
+      "distance": 7.6,
+      "site_type": "traffic-site",
       "pollutants": [
-        {
+          {
               "type": "nitrogen-dioxide",
               "measurement": 150.289,
               "trend": "Rising",
               "band": "Low",
               "aqi": 3,
               "low_range": "0 to 200"
+          },
+        {
+            "type": "particulate-matter10",
+            "measurement": 7.623,
+            "trend": "Falling",
+            "band": "Low",
+            "aqi": 1,
+            "low_range": "0 to 35"
         },
         {
             "type": "particulate-matter2",
@@ -108,7 +116,7 @@ const monitoringSites = [
             "band": "Moderate",
             "aqi": 4,
             "low_range": "0 to 35"
-        }
+    }
       ]
   }
 ]
