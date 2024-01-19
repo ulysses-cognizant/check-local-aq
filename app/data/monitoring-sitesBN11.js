@@ -2,32 +2,10 @@
 // Content for monitoring sites
 
 const monitoringSites = [
-    {
-        "site_name": "Brighton Preston Park",
-        "distance": 3.7,
-        "site_type": "urban-site",
-        "pollutants": [
-          {
-                "type": "nitrogen-dioxide",
-                "measurement": 150.289,
-                "trend": "Rising",
-                "band": "Low",
-                "aqi": 3,
-                "low_range": "0 to 200"
-          },
-          {
-              "type": "particulate-matter2",
-              "measurement": 41.8,
-              "trend": "Falling",
-              "band": "Moderate",
-              "aqi": 4,
-              "low_range": "0 to 35"
-          }
-        ]
-    },
+
   {
       "site_name": "Worthing A27 Roadside",
-      "distance": 6.5,
+      "distance": 1.4,
       "site_type": "traffic-site",
       "pollutants": [
           {
@@ -50,7 +28,7 @@ const monitoringSites = [
   },
   {
     "site_name": "Storrington Roadside",
-    "distance": 11,
+    "distance": 7.8,
     "site_type": "traffic-site",
     "pollutants": [
         {
@@ -61,6 +39,29 @@ const monitoringSites = [
             "aqi": 4,
             "low_range": "0 to 200"
         }
+    ]
+},
+{
+    "site_name": "Brighton Preston Park",
+    "distance": 10.2,
+    "site_type": "urban-site",
+    "pollutants": [
+      {
+            "type": "nitrogen-dioxide",
+            "measurement": 150.289,
+            "trend": "Rising",
+            "band": "Low",
+            "aqi": 3,
+            "low_range": "0 to 200"
+      },
+      {
+          "type": "particulate-matter2",
+          "measurement": 41.8,
+          "trend": "Falling",
+          "band": "Moderate",
+          "aqi": 4,
+          "low_range": "0 to 35"
+      }
     ]
 }
 ]
