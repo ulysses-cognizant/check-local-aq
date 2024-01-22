@@ -3,23 +3,54 @@
 
 const monitoringSites = [
     {
-        "site_name": "Horley",
-        "distance": 4.1,
-        "site_type": "industrial-site",
+        "site_name": "Brighton Preston Park",
+        "distance": 3.7,
+        "site_type": "urban-site",
         "pollutants": [
           {
                 "type": "nitrogen-dioxide",
-                "measurement": 280.289,
+                "measurement": 150.289,
                 "trend": "Rising",
-                "band": "Moderate",
-                "aqi": 4,
+                "band": "Low",
+                "aqi": 3,
                 "low_range": "0 to 200"
+          },
+          {
+              "type": "particulate-matter2",
+              "measurement": 41.8,
+              "trend": "Falling",
+              "band": "Moderate",
+              "aqi": 4,
+              "low_range": "0 to 35"
           }
         ]
     },
   {
+      "site_name": "Worthing A27 Roadside",
+      "distance": 6.5,
+      "site_type": "traffic-site",
+      "pollutants": [
+          {
+              "type": "nitrogen-dioxide",
+              "measurement": 220.436,
+              "trend": "Falling",
+              "band": "Moderate",
+              "aqi": 4,
+              "low_range": "0 to 200"
+          },
+        {
+            "type": "particulate-matter2",
+            "measurement": 37.2,
+            "trend": "Falling",
+            "band": "Moderate",
+            "aqi": 4,
+            "low_range": "0 to 35"
+        }
+      ]
+  },
+  {
     "site_name": "Storrington Roadside",
-    "distance": 17,
+    "distance": 11,
     "site_type": "traffic-site",
     "pollutants": [
         {
@@ -30,29 +61,6 @@ const monitoringSites = [
             "aqi": 4,
             "low_range": "0 to 200"
         }
-    ]
-},
-{
-    "site_name": "Brighton Preston Park",
-    "distance": 18.8,
-    "site_type": "urban-site",
-    "pollutants": [
-      {
-            "type": "nitrogen-dioxide",
-            "measurement": 102.467,
-            "trend": "Rising",
-            "band": "Low",
-            "aqi": 3,
-            "low_range": "0 to 200"
-      },
-      {
-          "type": "particulate-matter2",
-          "measurement": 41.8,
-          "trend": "Falling",
-          "band": "Moderate",
-          "aqi": 4,
-          "low_range": "0 to 35"
-      }
     ]
 }
 ]
