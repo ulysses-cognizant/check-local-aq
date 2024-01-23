@@ -2,84 +2,45 @@
 // Content for monitoring sites
 
 const monitoringSites = [
-    {
-        "site_name": "Birmingham Ladywood",
-        "distance": 2.25,
-        "site_type": "urban-site",
-        "pollutants": [
-            {
-                "type": "ozone",
-                "measurement": 36.345,
-                "trend": "Rising",
-                "band": "Low",
-                "aqi": 2,
-                "low_range": "0 to 100"
-            },
-            {
-                "type": "nitrogen-dioxide",
-                "measurement": 209.436,
-                "trend": "Rising",
-                "band": "Moderate",
-                "aqi": 4,
-                "low_range": "0 to 200"
-            },
-            {
-                "type": "sulphur-dioxide",
-                "measurement": 280.436,
-                "trend": "Steady",
-                "band": "Moderate",
-                "aqi": 4,
-                "low_range": "0 to 200"
-            },
-            {
-                "type": "particulate-matter10",
-                "measurement": 7.113,
-                "trend": "Falling",
-                "band": "Low",
-                "aqi": 1,
-                "low_range": "0 to 35"
-            },
-            {
-                "type": "particulate-matter2",
-                "measurement": 34.2,
-                "trend": "Falling",
-                "band": "Moderate",
-                "aqi": 4,
-                "low_range": "0 to 35"
-        }
-        ]
-    },
-    {
-      "site_name": "West Bromwich Kenrick Park",
-      "distance": 2.89,
+  {
+      "site_name": "Leeds Headingley Kerbside",
+      "distance": 5.16,
       "site_type": "traffic-site",
       "pollutants": [
-        {
-            "type": "ozone",
-            "measurement": 24.80,
-            "trend": "Rising",
-            "band": "Low",
-            "aqi": 2,
-            "low_range": "0 to 100"
-        },
-        {
+          {
               "type": "nitrogen-dioxide",
               "measurement": 220.436,
               "trend": "Falling",
               "band": "Moderate",
               "aqi": 4,
               "low_range": "0 to 200"
+          },
+            {
+            "type": "particulate-matter10",
+            "measurement": 8.113,
+            "trend": "Falling",
+            "band": "Low",
+            "aqi": 1,
+            "low_range": "0 to 35"
+        },
+        {
+            "type": "particulate-matter2",
+            "measurement": 37.2,
+            "trend": "Falling",
+            "band": "Moderate",
+            "aqi": 4,
+            "low_range": "0 to 35"
         }
       ]
   },
   {
-      "site_name": "Birmingham A4540 Roadside",
-      "distance": 3.18,
-      "site_type": "traffic-site",
-      "pollutants": [
+    "site_name": "Leeds Centre",
+    "distance": 6.8,
+    "site_type": "urban-site",
+    "pollutants": [
         {
             "type": "ozone",
-            "measurement": 28.03,
+            "measurement": 36.345,
             "trend": "Rising",
             "band": "Low",
             "aqi": 2,
@@ -87,10 +48,18 @@ const monitoringSites = [
         },
         {
             "type": "nitrogen-dioxide",
-            "measurement": 150.289,
+            "measurement": 209.436,
             "trend": "Rising",
-            "band": "Low",
-            "aqi": 3,
+            "band": "Moderate",
+            "aqi": 4,
+            "low_range": "0 to 200"
+        },
+        {
+            "type": "sulphur-dioxide",
+            "measurement": 280.436,
+            "trend": "Steady",
+            "band": "Moderate",
+            "aqi": 4,
             "low_range": "0 to 200"
         },
         {
@@ -100,6 +69,29 @@ const monitoringSites = [
             "band": "Low",
             "aqi": 1,
             "low_range": "0 to 35"
+        },
+        {
+            "type": "particulate-matter2",
+            "measurement": 34.2,
+            "trend": "Falling",
+            "band": "Moderate",
+            "aqi": 4,
+            "low_range": "0 to 35"
+    }
+    ]
+},
+  {
+      "site_name": "Bradford Mayo Avenue",
+      "distance": 6.9,
+      "site_type": "traffic-site",
+      "pollutants": [
+        {
+              "type": "nitrogen-dioxide",
+              "measurement": 150.289,
+              "trend": "Rising",
+              "band": "Low",
+              "aqi": 3,
+              "low_range": "0 to 200"
         },
         {
             "type": "particulate-matter2",
