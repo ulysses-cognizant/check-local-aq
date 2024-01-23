@@ -2,10 +2,9 @@
 // Content for monitoring sites
 
 const monitoringSites = [
-
   {
-      "site_name": "Worthing A27 Roadside",
-      "distance": 1.4,
+      "site_name": "Leeds Headingley Kerbside",
+      "distance": 5.16,
       "site_type": "traffic-site",
       "pollutants": [
           {
@@ -16,6 +15,14 @@ const monitoringSites = [
               "aqi": 4,
               "low_range": "0 to 200"
           },
+            {
+            "type": "particulate-matter10",
+            "measurement": 8.113,
+            "trend": "Falling",
+            "band": "Low",
+            "aqi": 1,
+            "low_range": "0 to 35"
+        },
         {
             "type": "particulate-matter2",
             "measurement": 37.2,
@@ -27,10 +34,18 @@ const monitoringSites = [
       ]
   },
   {
-    "site_name": "Storrington Roadside",
-    "distance": 7.8,
-    "site_type": "traffic-site",
+    "site_name": "Leeds Centre",
+    "distance": 6.8,
+    "site_type": "urban-site",
     "pollutants": [
+        {
+            "type": "ozone",
+            "measurement": 36.345,
+            "trend": "Rising",
+            "band": "Low",
+            "aqi": 2,
+            "low_range": "0 to 100"
+        },
         {
             "type": "nitrogen-dioxide",
             "measurement": 209.436,
@@ -38,32 +53,56 @@ const monitoringSites = [
             "band": "Moderate",
             "aqi": 4,
             "low_range": "0 to 200"
-        }
+        },
+        {
+            "type": "sulphur-dioxide",
+            "measurement": 280.436,
+            "trend": "Steady",
+            "band": "Moderate",
+            "aqi": 4,
+            "low_range": "0 to 200"
+        },
+        {
+            "type": "particulate-matter10",
+            "measurement": 7.113,
+            "trend": "Falling",
+            "band": "Low",
+            "aqi": 1,
+            "low_range": "0 to 35"
+        },
+        {
+            "type": "particulate-matter2",
+            "measurement": 34.2,
+            "trend": "Falling",
+            "band": "Moderate",
+            "aqi": 4,
+            "low_range": "0 to 35"
+    }
     ]
 },
-{
-    "site_name": "Brighton Preston Park",
-    "distance": 10.2,
-    "site_type": "urban-site",
-    "pollutants": [
-      {
-            "type": "nitrogen-dioxide",
-            "measurement": 150.289,
-            "trend": "Rising",
-            "band": "Low",
-            "aqi": 3,
-            "low_range": "0 to 200"
-      },
-      {
-          "type": "particulate-matter2",
-          "measurement": 41.8,
-          "trend": "Falling",
-          "band": "Moderate",
-          "aqi": 4,
-          "low_range": "0 to 35"
-      }
-    ]
-}
+  {
+      "site_name": "Bradford Mayo Avenue",
+      "distance": 6.9,
+      "site_type": "traffic-site",
+      "pollutants": [
+        {
+              "type": "nitrogen-dioxide",
+              "measurement": 150.289,
+              "trend": "Rising",
+              "band": "Low",
+              "aqi": 3,
+              "low_range": "0 to 200"
+        },
+        {
+            "type": "particulate-matter2",
+            "measurement": 41.8,
+            "trend": "Falling",
+            "band": "Moderate",
+            "aqi": 4,
+            "low_range": "0 to 35"
+        }
+      ]
+  }
 ]
 
 // Pollutant reference data
