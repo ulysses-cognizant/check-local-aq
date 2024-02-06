@@ -16,6 +16,13 @@
         margin-bottom: govuk-spacing(6);
         padding-bottom: 0;
         border: 0;
+        @include mq ($from: tablet) {
+            margin-bottom: govuk-spacing(8);
+        }
+    }
+
+    .govuk-tabs__panel:last-child {
+        margin-bottom: govuk-spacing(8);
     }
 
     .govuk-tabs__panel--forecast {
