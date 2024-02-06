@@ -1,15 +1,24 @@
-
-<h3 class="govuk-heading-s govuk-!-margin-bottom-2"><a href="/pollutants/ozone">Ozone</a></h3>
-<p>When chemicals from sources such as cars and factories react with sunlight they form ozone. Unlike the ozone layer, which protects us from harmful UV rays, ozone gas is harmful to our health.</p>
-
-<h3 class="govuk-heading-s govuk-!-margin-bottom-2"><a href="/pollutants/nitrogen-dioxide">Nitrogen dioxide</a></h3>
-<p>A byproduct of burning fossil fuel and one of the main sources of air pollution.</p>
-
-<h3 class="govuk-heading-s govuk-!-margin-bottom-2"><a href="/pollutants/sulphur-dioxide">Sulphur dioxide</a></h3>
-<p>Produced from the burning of fossil fuels like diesel, petrol, and gas, it carries a strong smell.</p>
-
-<h3 class="govuk-heading-s govuk-!-margin-bottom-2"><a href="/pollutants/particulate-matter2">Particulate matter (PM2.5)</a></h3>
-<p>Tiny particles of solids or liquid that come from sources such as dust, smoke and agriculture.</p>
-
-<h3 class="govuk-heading-s govuk-!-margin-bottom-2"><a href="/pollutants/particulate-matter10">Particulate matter (PM10)</a></h3>
-<p>Small particles of solid or liquid that come from sources such as construction sites, wildfires, pollen and power plants. </p>
+<h2 class="govuk-heading-m govuk-!-margin-bottom-6">Learn how air pollutants can affect your health</h2>
+{{ appCards({
+  items: [{
+    href: "/pollutants/ozone",
+    text: "Ozone",
+    description: "Long term exposure to ozone may lead to increased respiratory illnesses, cancer and heart issues."
+  }, {
+    href: "/pollutants/nitrogen-dioxide",
+    text: "Nitrogen dioxide",
+    description: "Long term exposure for children can lead to poorer lung function  and increased respiratory infections."
+  }, {
+    href: "/pollutants/sulphur-dioxide",
+    text: "Sulphur dioxide",
+    description: "Long term exposure to sulphur dioxide can lead to poorer lung function  and increased respiratory infections."
+  }, {
+    href: "/pollutants/particulate-matter10",
+    text: "PM10",
+    description: "Long term health impacts of PM10 can lead to an increased risk of lung tissue damage, asthma and cancer."
+  }, {
+    href: "/pollutants/particulate-matter2",
+    text: "PM2.5",
+    description: "Long term health impacts of PM2.5 can lead to an increased risk of strokes, lung cancer and diabetes."
+  }]
+}) }}

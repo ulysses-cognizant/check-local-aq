@@ -4,6 +4,7 @@
 const monitoringSites = [
   {
       "site_name": "Eastbourne",
+      "site_id": "eastbourne",
       "distance": 2.3,
       "site_type": "urban-site",
       "pollutants": [
@@ -43,6 +44,7 @@ const monitoringSites = [
   },
   {
     "site_name": "Lullington Heath",
+    "site_id": "lullington-heath",
     "distance": 3.5,
     "site_type": "rural-site",
     "pollutants": [
@@ -90,6 +92,7 @@ const monitoringSites = [
 },
   {
       "site_name": "Brighton Preston Park",
+      "site_id": "brighton-preston-park",
       "distance": 18.2,
       "site_type": "urban-site",
       "pollutants": [

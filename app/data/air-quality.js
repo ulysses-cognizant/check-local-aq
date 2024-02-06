@@ -7,7 +7,9 @@ const commonMessages = {
             asthma: "Enjoy your usual outdoor activities.",
             oldPeople: "Enjoy your usual outdoor activities."
         },
-        outlook: "The current spell of unsettled weather will continue, helping to keep air pollution levels low across the UK during today."
+        ukToday: "Unsettled, wet and windy weather conditions will help to maintain low levels of air pollution across the United Kingdom today.",
+        ukTomorrow: "The unsettled weather will continue resulting in low levels of air pollution across the country.",
+        ukOutlook: "Low levels of air pollution are forecast across the country as unsettled weather conditions continue."
     },
     moderate: {
         values: [4, 5, 6],
@@ -17,7 +19,9 @@ const commonMessages = {
             asthma: "People with asthma should be prepared to use their reliever inhaler.",
             oldPeople: "Older people should consider doing less strenuous activity, especially outside."
         },
-        outlook: "The influx of warm air from the continent is resulting in moderate air pollution levels throughout many areas today."
+        ukToday: "The influx of warm air from the continent is resulting in moderate air pollution levels throughout many areas today.",
+        ukTomorrow: "Light winds and warm temperatures could result in moderate air pollution levels throughout many areas tomorrow.",
+        ukOutlook: "Towards the end of the period there is chance warm air from the continent could increase levels of air pollution across the country"
     },
     high: {
         values: [7, 8, 9],
@@ -27,7 +31,9 @@ const commonMessages = {
             asthma: "People with asthma may find they need to use their reliever inhaler more often.",
             oldPeople: "Older people should reduce physical exertion."
         },
-        outlook: "Warm temperatures are expected to increase pollution levels to high across many areas today."
+        ukToday: "Warm temperatures are expected to increase pollution levels to high across many areas today.",
+        ukTomorrow: "Test tomorrrow",
+        ukOutlook: "Test outlook"
     },
     veryHigh: {
         values: [10],
@@ -37,20 +43,23 @@ const commonMessages = {
             asthma: "People with asthma may need to use their reliever inhaler more often.",
             oldPeople: "Older people should avoid strenuous physical activity."
         },
-        outlook: "The current heatwave shows no signs of relenting, causing air pollution levels to remain very high across many areas today."
+        ukToday: "The current heatwave shows no signs of relenting, causing air pollution levels to remain very high across many areas today.",
+        ukTomorrow: "Test tomorrrow",
+        ukOutlook: "Test outlook"
+        
     },
     unknown: {
         advice: "No data available."
     }
 };
 
+// Function to get common messages based on the air quality band
 function getCommonMessage(band) {
     return commonMessages[band] || commonMessages.unknown;
 }
 
-function getAirQuality(aqValue) {
-    const value = aqValue || "4"; // Default value
-
+// Function to get air quality data for today, tomorrow, and the day after tomorrow
+function getAirQuality(aqValueToday, aqValueTomorrow, aqValueOutlook) {
     const lookup = {
         "1": { band: "low", readableBand: "low" },
         "2": { band: "low", readableBand: "low" },
@@ -64,20 +73,26 @@ function getAirQuality(aqValue) {
         "10": { band: "veryHigh", readableBand: "very high" }
     };
 
- 
-    const bandInfo = lookup[value] || { band: "unknown", readableBand: "unknown" };
-    const band = bandInfo.band;
-    const readableBand = bandInfo.readableBand; 
-
-    const message = getCommonMessage(band);
+    // Function for getting detailed air quality information
+    function getDetailedInfo(aqValue) {
+        const bandInfo = lookup[aqValue.toString()] || { band: "unknown", readableBand: "unknown" };
+        const message = getCommonMessage(bandInfo.band);
+        return {
+            value: aqValue,
+            band: bandInfo.band,
+            readableBand: bandInfo.readableBand,
+            advice: message.advice,
+            atrisk: message.atrisk,
+            ukToday: message.ukToday,
+            ukTomorrow: message.ukTomorrow,
+            ukOutlook: message.ukOutlook
+        };
+    }
 
     return {
-        value: value,
-        band: band,
-        readableBand: readableBand, // Now readableBand is defined
-        advice: message.advice,
-        atrisk: message.atrisk,
-        outlook: message.outlook
+        today: getDetailedInfo(aqValueToday || "2"),
+        tomorrow: getDetailedInfo(aqValueTomorrow || "3"),
+        outlook: getDetailedInfo(aqValueOutlook || "4")
     };
 };
 
@@ -86,4 +101,3 @@ module.exports = {
     getCommonMessage,
     commonMessages 
 };
-

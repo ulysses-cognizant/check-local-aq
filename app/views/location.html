@@ -3,6 +3,8 @@
 {% from "components/pollutant/macro.njk" import appPollutant %}
 {% from "components/toggletip/macro.njk" import toggletip %}
 {% from "components/aq-levels-table/macro.njk" import aqLevelsTable %}
+{% from "components/aq-tabs/macro.njk" import aqTabs %}
+{% from "components/cards/macro.njk" import appCards %}
 
 {% set caption = "" %}
 {% set title = result.GAZETTEER_ENTRY.NAME1 + ", " + (result.GAZETTEER_ENTRY.COUNTY_UNITARY if result.GAZETTEER_ENTRY.COUNTY_UNITARY else result.GAZETTEER_ENTRY.DISTRICT_BOROUGH) %}
@@ -26,41 +28,13 @@
   </div>
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full-until-desktop govuk-grid-column-two-thirds-from-desktop govuk-!-margin-bottom-9">
-      {% include "includes/daqi.html" %}
-      {% if airQuality.value >= 1 and airQuality.value <= 3 %}
-          <h2 class="govuk-heading-m">Health advice for {{ airQuality.readableBand }} levels of air pollution</h2>
-          <p>{{ airQuality.advice }}</p>
-      {% elseif airQuality.value >= 4 %}
-          <h2 class="govuk-heading-m">Health advice for {{ airQuality.readableBand }} levels of air pollution</h2>
-          <p>{{ airQuality.advice }}</p>
-          {% set adultsText %}
-            {{ (airQuality.atrisk.adults) }}
-          {% endset %}
-          {% set asthmaText %}
-            {{ (airQuality.atrisk.asthma) }}
-          {% endset %}
-          {% set oldPeopleText %}
-          {{ (airQuality.atrisk.oldPeople) }}
-          {% endset %}
-          {{ govukInsetText({
-            html: 
-              "<p>" + adultsText + "</p>" + 
-              "<p>" + asthmaText + "</p>" +
-              "<p>" + oldPeopleText + "</p>" 
-          }) }}
-      {% endif %}    
+      {% include "includes/forecast.html" %}
+      <p class="govuk-caption-s govuk-!-margin-bottom-2">Updated at 5:00am on {{ "today" | govukDate }}</p>
+      
+      <hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-4">
       {% include "includes/daqi-index.html" %}
-      <h2 class="govuk-heading-m">UK air pollution summary</h2>
-      <p class="govuk-!-margin-bottom-6">
-        {{ airQuality.outlook }}
-      </p>
-      <p class="govuk-caption-s govuk-!-margin-bottom-4">Latest at 5am {{ "today" | govukDate }}</p>
-      <hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-6">
-      <h2 class="govuk-heading-m">How air pollutants can affect your health</h2>
-      {% include "includes/pollutants.html" %}
-      <hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-6 govuk-!-margin-top-6">
-      <h2 class="govuk-heading-m">Air pollutants monitored near by</h2>
       {% include "includes/monitoring-sites.html" %}
+      {% include "includes/pollutants.html" %}
     </div>
   </div>
 

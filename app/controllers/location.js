@@ -7,24 +7,26 @@ const apiKey = process.env.OS_API_KEY;
 exports.getLocationData = async (req, res) => {
   try {
     const originalUserLocation = req.body.location.trim();
-    let userLocation = originalUserLocation.toUpperCase(); // Use 'let' to allow reassignment
+    let userLocation = originalUserLocation.toUpperCase();
 
-    // Regex patterns to check for full and partial postcodes
     const fullPostcodePattern = /^([A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2})$/;
     const partialPostcodePattern = /^([A-Z]{1,2}\d[A-Z\d]?)$/;
 
-    // Insert a space for full postcodes without a space
     if (fullPostcodePattern.test(userLocation) && !userLocation.includes(' ')) {
       const spaceIndex = userLocation.length - 3;
       userLocation = `${userLocation.slice(0, spaceIndex)} ${userLocation.slice(spaceIndex)}`;
     }
 
-    const aqValue = req.body.aq;
-    const airQuality = getAirQuality(aqValue);
-
     if (!userLocation) {
       return res.status(400).redirect('enter-location');
     }
+
+    // Example: Retrieving air quality values
+    const aqValueToday = req.body.aqValueToday || "4";
+    const aqValueTomorrow = req.body.aqValueTomorrow || "4";
+    const aqValueOutlook = req.body.aqValueOutlook || "4";
+
+    const airQuality = getAirQuality(aqValueToday, aqValueTomorrow, aqValueOutlook);
 
     let filters = [
       'LOCAL_TYPE:City',
@@ -36,9 +38,7 @@ exports.getLocationData = async (req, res) => {
     ].join('+');
 
     const apiUrl = `https://api.os.uk/search/names/v1/find?query=${encodeURIComponent(userLocation)}&fq=${encodeURIComponent(filters)}&key=${apiKey}`;
-
     const response = await axios.get(apiUrl);
-
     const { results } = response.data;
 
     if (!results || results.length === 0) {
@@ -51,18 +51,32 @@ exports.getLocationData = async (req, res) => {
       return name.includes(userLocation) || userLocation.includes(name);
     });
 
-    // If it's a partial postcode and there are matches, use the first match and adjust the title
     if (partialPostcodePattern.test(originalUserLocation) && matches.length > 0) {
-      matches[0].GAZETTEER_ENTRY.NAME1 = originalUserLocation.toUpperCase(); // Set the name to the partial postcode
+      matches[0].GAZETTEER_ENTRY.NAME1 = originalUserLocation.toUpperCase();
       matches = [matches[0]];
     }
 
-    req.session.locationData = matches; // Store the data in session
+    req.session.locationData = matches;
 
     if (matches.length === 1) {
-      res.render('location', { result: matches[0], airQuality: airQuality, airQualityData: airQualityData.commonMessages, monitoringSites: monitoringSites, siteTypeDescriptions: siteTypeDescriptions, pollutantTypes: pollutantTypes });
+      res.render('location', {
+        result: matches[0],
+        airQuality: airQuality,
+        airQualityData: airQualityData.commonMessages,
+        monitoringSites: monitoringSites,
+        siteTypeDescriptions: siteTypeDescriptions,
+        pollutantTypes: pollutantTypes
+      });
     } else if (matches.length > 1) {
-      res.render('multiple_locations', { results: matches, userLocation: originalUserLocation, airQuality: airQuality, airQualityData: airQualityData.commonMessages, monitoringSites: monitoringSites, siteTypeDescriptions: siteTypeDescriptions, pollutantTypes: pollutantTypes });
+      res.render('multiple_locations', {
+        results: matches,
+        userLocation: originalUserLocation,
+        airQuality: airQuality,
+        airQualityData: airQualityData.commonMessages,
+        monitoringSites: monitoringSites,
+        siteTypeDescriptions: siteTypeDescriptions,
+        pollutantTypes: pollutantTypes
+      });
     } else {
       res.render('location-not-found', { userLocation: originalUserLocation });
     }
@@ -79,8 +93,21 @@ exports.getLocationDetails = (req, res) => {
     const locationDetails = locationData.find(item => item.GAZETTEER_ENTRY.ID === locationId);
 
     if (locationDetails) {
-      const airQuality = getAirQuality(/* Retrieved from session or another source */);
-      res.render('location', { result: locationDetails, airQuality: airQuality, airQualityData: airQualityData.commonMessages, monitoringSites: monitoringSites, siteTypeDescriptions: siteTypeDescriptions, pollutantTypes: pollutantTypes });
+      // Example: Retrieving air quality values
+      const aqValueToday = "2"; 
+      const aqValueTomorrow = "3"; 
+      const aqValueOutlook = "5"; 
+
+      const airQuality = getAirQuality(aqValueToday, aqValueTomorrow, aqValueOutlook);
+
+      res.render('location', {
+        result: locationDetails,
+        airQuality: airQuality,
+        airQualityData: airQualityData.commonMessages,
+        monitoringSites: monitoringSites,
+        siteTypeDescriptions: siteTypeDescriptions,
+        pollutantTypes: pollutantTypes
+      });
     } else {
       res.render('location-not-found');
     }
@@ -89,4 +116,3 @@ exports.getLocationDetails = (req, res) => {
     res.status(500).render('error', { error: 'An error occurred while retrieving location details.' });
   }
 };
-

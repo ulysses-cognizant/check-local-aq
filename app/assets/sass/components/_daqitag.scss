@@ -23,15 +23,15 @@
     // removed using the version of the font that has a more common vertical spacing.
     @include govuk-font($size: 16, $weight: regular, $line-height: 1.25);
     padding-top: 4px;
-    padding-right: 8px;
+    padding-right: 6px;
     padding-bottom: 1px;
-    padding-left: 8px;
+    padding-left: 6px;
   } @else {
     @include govuk-font($size: 16, $weight: regular, $line-height: 1);
-    padding-top: 5px;
-    padding-right: 8px;
+    padding-top: 4px;
+    padding-right: 6px;
     padding-bottom: 4px;
-    padding-left: 8px;
+    padding-left: 6px;
   }
 }
 
@@ -44,6 +44,7 @@ mark {
   font-weight: bold;
   color: inherit;
 }
+
 
 .daqi-tag--1 {
   color: govuk-colour("white");
