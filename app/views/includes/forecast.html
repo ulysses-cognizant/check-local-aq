@@ -1,10 +1,10 @@
 
-<h2 class="govuk-heading-m">The air pollution forecast for the next 5 days</h2>
+<h2 class="govuk-heading-m govuk-!-font-size-27 govuk-!-margin-bottom-5">Air pollution forecast for the next 5 days</h2>
 
 {% set todayHtml %}
-<h3 class="govuk-heading-m">Today</h3>
+<h3 class="govuk-heading-m govuk-!-margin-bottom-3">Today<strong class="daqi-tag daqi-tag--{{ airQuality.today.value }}">{{ airQuality.today.readableBand | capitalize }}</strong></h3>
 <p>The air quality index is forecast to be {{ airQuality.today.value }}, with {{ airQuality.today.readableBand }} levels of air pollution.</p>
-<h4 class="govuk-heading-s">Across the UK today</h4>
+<h4 class="govuk-heading-s govuk-!-margin-bottom-3">Across the UK today</h4>
 <p>{{ airQuality.today.ukToday }}</p>
 {% if airQuality.today.value >= 1 and airQuality.today.value <= 3 %}
     <!-- Display for low pollution levels -->
@@ -20,9 +20,9 @@
 {% endset -%}
 
 {% set tomorrowHtml %}
-<h3 class="govuk-heading-m">Tomorrow</h3>
+<h3 class="govuk-heading-m govuk-!-margin-bottom-3">Tomorrow<strong class="daqi-tag daqi-tag--{{ airQuality.tomorrow.value }}">{{ airQuality.tomorrow.readableBand | capitalize }}</strong></h3>
 <p>The air quality index is forecast to be {{ airQuality.tomorrow.value }}, with {{ airQuality.tomorrow.readableBand }} levels of air pollution.</p>
-<h4 class="govuk-heading-s">Across the UK tomorrow</h4>
+<h4 class="govuk-heading-s govuk-!-margin-bottom-3">Across the UK tomorrow</h4>
 <p>{{ airQuality.tomorrow.ukTomorrow }}</p>
 {% if airQuality.tomorrow.value >= 1 and airQuality.tomorrow.value <= 3 %}
     <!-- Display for low pollution levels -->
@@ -39,9 +39,9 @@
 
 
 {% set outlookHtml %}
-<h3 class="govuk-heading-m">Outlook</h3>
+<h3 class="govuk-heading-m govuk-!-margin-bottom-3">Outlook<strong class="daqi-tag daqi-tag--{{ airQuality.outlook.value }}">{{ airQuality.outlook.readableBand | capitalize }}</strong></h3>
 <p>The air quality index is forecast to be {{ airQuality.tomorrow.value }} for {{ 1 | addDaysToTodayAndDisplayDay }} and {{ 2 | addDaysToTodayAndDisplayDay }}, with {{ airQuality.tomorrow.readableBand }} levels of air pollution. On {{ 3 | addDaysToTodayAndDisplayDay }} there is potential for {{ airQuality.outlook.readableBand }} levels of air pollution.</p>
-<h4 class="govuk-heading-s">Across the UK</h4>
+<h4 class="govuk-heading-s govuk-!-margin-bottom-3">Across the UK</h4>
 <p>{{ airQuality.outlook.ukOutlook }}</p>
 {% if airQuality.outlook.value >= 1 and airQuality.outlook.value <= 3 %}
 {% elseif airQuality.outlook.value >= 4 %}

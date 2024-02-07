@@ -94,4 +94,10 @@
       //flex: 1 1 0.5em;
     }
   }
+  &__cell--level strong {
+    position: relative;
+    top: -1px;
+  }
 }
+
+
