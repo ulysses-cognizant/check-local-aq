@@ -1,4 +1,4 @@
-<h2 class="govuk-heading-m">Air pollutants monitored near by</h2>
+<h2 class="govuk-heading-m">Air pollutants monitored nearby</h2>
 {% set tabItems = [] %} {# Initialize an empty array to hold tab items #}
 
 {% for site in monitoringSites %}
@@ -24,7 +24,7 @@
     {{ toggletip(
       '',
       'More information about the level',
-      'There are 4 levels: low, moderate, high and very high.',
+      'The level is calculated based on the daily air quality index (DAQI). There are 4 levels: low, moderate, high and very high.',
       'Level'
     )}}
   {% endset %}

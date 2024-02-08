@@ -1,68 +1,56 @@
 
-<h2 class="govuk-heading-m govuk-!-font-size-27 govuk-!-margin-bottom-5">Air pollution forecast</h2>
+<h2 class="govuk-heading-m govuk-!-font-size-27 govuk-!-margin-bottom-5">Air pollution forecast for the next 5 days</h2>
 
 {% set todayHtml %}
 <h3 class="govuk-heading-m govuk-!-margin-bottom-3">Today<strong class="daqi-tag daqi-tag--{{ airQuality.today.value }}">{{ airQuality.today.readableBand | capitalize }}</strong></h3>
-<p>Air pollution today in {{ result.GAZETTEER_ENTRY.NAME1 }} is {{ airQuality.today.readableBand }}.</p>
-<h4 class="govuk-heading-s govuk-!-margin-bottom-3">UK forecast</h4>
+<p>The air quality index is forecast to be {{ airQuality.today.value }}, with {{ airQuality.today.readableBand }} levels of air pollution.</p>
+<h4 class="govuk-heading-s govuk-!-margin-bottom-3">Across the UK today</h4>
 <p>{{ airQuality.today.ukToday }}</p>
 {% if airQuality.today.value >= 1 and airQuality.today.value <= 3 %}
     <!-- Display for low pollution levels -->
 {% elseif airQuality.today.value >= 4 %}
     <!-- Display for high pollution levels -->
-    <h4 class="govuk-heading-s">Health advice for {{ airQuality.today.readableBand }} air pollution</h4>
+    <h4 class="govuk-heading-s">Health advice for {{ airQuality.today.readableBand }} levels of air pollution</h4>
     <p>{{ airQuality.today.advice }}</p>
-    {% set adultsText = airQuality.today.atrisk.adults %}
-    {% set asthmaText = airQuality.today.atrisk.asthma %}
-    {% set oldPeopleText = airQuality.today.atrisk.oldPeople %}
-    {{ govukInsetText({
-        classes: "govuk-inset-text--" + (airQuality.today.value | string),
-        html:"<p>" + adultsText + "</p><p>" + asthmaText + "</p><p>" + oldPeopleText + "</p>" 
-    }) }}
+    <!-- Display advice for specific risk groups -->
+    <p>{{ airQuality.today.atrisk.adults }}</p>
+    <p>{{ airQuality.today.atrisk.asthma }}</p>
+    <p>{{ airQuality.today.atrisk.oldPeople }}</p>
 {% endif %}
 {% endset -%}
 
 {% set tomorrowHtml %}
 <h3 class="govuk-heading-m govuk-!-margin-bottom-3">Tomorrow<strong class="daqi-tag daqi-tag--{{ airQuality.tomorrow.value }}">{{ airQuality.tomorrow.readableBand | capitalize }}</strong></h3>
-<p>Air pollution tomorrow in {{ result.GAZETTEER_ENTRY.NAME1 }} is expected to be {{ airQuality.today.readableBand }}.</p>
-<h4 class="govuk-heading-s govuk-!-margin-bottom-3">UK forecast</h4>
+<p>The air quality index is forecast to be {{ airQuality.tomorrow.value }}, with {{ airQuality.tomorrow.readableBand }} levels of air pollution.</p>
+<h4 class="govuk-heading-s govuk-!-margin-bottom-3">Across the UK tomorrow</h4>
 <p>{{ airQuality.tomorrow.ukTomorrow }}</p>
 {% if airQuality.tomorrow.value >= 1 and airQuality.tomorrow.value <= 3 %}
     <!-- Display for low pollution levels -->
 {% elseif airQuality.tomorrow.value >= 4 %}
     <!-- Display for high pollution levels -->
-    <h4 class="govuk-heading-s">Health advice for {{ airQuality.tomorrow.readableBand }} air pollution</h4>
+    <h4 class="govuk-heading-s">Health advice for {{ airQuality.tomorrow.readableBand }} levels of air pollution</h4>
     <p>{{ airQuality.tomorrow.advice }}</p>
-    {% set adultsText = airQuality.tomorrow.atrisk.adults %}
-    {% set asthmaText = airQuality.tomorrow.atrisk.asthma %}
-    {% set oldPeopleText = airQuality.tomorrow.atrisk.oldPeople %}
-    {{ govukInsetText({
-        classes: "govuk-inset-text--" + (airQuality.tomorrow.value | string),
-        html:"<p>" + adultsText + "</p><p>" + asthmaText + "</p><p>" + oldPeopleText + "</p>" 
-    }) }}    
+    <!-- Display advice for specific risk groups -->
+    <p>{{ airQuality.tomorrow.atrisk.adults }}</p>
+    <p>{{ airQuality.tomorrow.atrisk.asthma }}</p>
+    <p>{{ airQuality.tomorrow.atrisk.oldPeople }}</p>
 {% endif %}
 {% endset -%}
 
 
-
-
-
 {% set outlookHtml %}
 <h3 class="govuk-heading-m govuk-!-margin-bottom-3">Outlook<strong class="daqi-tag daqi-tag--{{ airQuality.outlook.value }}">{{ airQuality.outlook.readableBand | capitalize }}</strong></h3>
-<p>The air pollution for {{ 1 | addDaysToTodayAndDisplayDay }} and {{ 2 | addDaysToTodayAndDisplayDay }} in {{ result.GAZETTEER_ENTRY.NAME1 }} is expected to be {{ airQuality.tomorrow.readableBand }}. On {{ 3 | addDaysToTodayAndDisplayDay }} the air pollution may be {{ airQuality.outlook.readableBand }}.</p>
-<h4 class="govuk-heading-s govuk-!-margin-bottom-3">UK forecast</h4>
+<p>The air quality index is forecast to be {{ airQuality.tomorrow.value }} for {{ 1 | addDaysToTodayAndDisplayDay }} and {{ 2 | addDaysToTodayAndDisplayDay }}, with {{ airQuality.tomorrow.readableBand }} levels of air pollution. On {{ 3 | addDaysToTodayAndDisplayDay }} there is potential for {{ airQuality.outlook.readableBand }} levels of air pollution.</p>
+<h4 class="govuk-heading-s govuk-!-margin-bottom-3">Across the UK</h4>
 <p>{{ airQuality.outlook.ukOutlook }}</p>
-{% if airQuality.outlook.value >= 1 and airQuality.outlook.value <= 3 %} 
+{% if airQuality.outlook.value >= 1 and airQuality.outlook.value <= 3 %}
 {% elseif airQuality.outlook.value >= 4 %}
-    <h4 class="govuk-heading-s">Health advice for {{ airQuality.outlook.readableBand }} air pollution</h4>
+    <h4 class="govuk-heading-s">Health advice for {{ airQuality.outlook.readableBand }} levels of air pollution</h4>
     <p>{{ airQuality.outlook.advice }}</p>
-    {% set adultsText = airQuality.outlook.atrisk.adults %}
-    {% set asthmaText = airQuality.outlook.atrisk.asthma %}
-    {% set oldPeopleText = airQuality.outlook.atrisk.oldPeople %}
-    {{ govukInsetText({
-        classes: "govuk-inset-text--" + (airQuality.outlook.value | string),
-        html:"<p>" + adultsText + "</p><p>" + asthmaText + "</p><p>" + oldPeopleText + "</p>" 
-    }) }}
+    <!-- Display advice for specific risk groups -->
+    <p>{{ airQuality.outlook.atrisk.adults }}</p>
+    <p>{{ airQuality.outlook.atrisk.asthma }}</p>
+    <p>{{ airQuality.outlook.atrisk.oldPeople }}</p>
 {% endif %}
 {% endset -%}
 

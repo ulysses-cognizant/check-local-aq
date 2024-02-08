@@ -14,8 +14,8 @@ const commonMessages = {
             asthma: "Enjoy your usual outdoor activities.",
             oldPeople: "Enjoy your usual outdoor activities."
         },
-        ukToday: "Unsettled, wet and windy weather conditions will help to maintain low levels of air pollution across the United Kingdom today.",
-        ukTomorrow: "The unsettled weather will continue resulting in low levels of air pollution across the country.",
+        ukToday: "Strong winds for many areas during today will help to keep air pollution levels low across the whole of the UK.",
+        ukTomorrow: "The unsettled weather will continue resulting in low levels of air pollution across the whole of the UK.",
         ukOutlook: "Low levels of air pollution are forecast across the country as unsettled weather conditions continue."
     },
     moderate: {
@@ -28,7 +28,7 @@ const commonMessages = {
         },
         ukToday: "The influx of warm air from the continent is resulting in moderate air pollution levels throughout many areas today.",
         ukTomorrow: "Light winds and warm temperatures could result in moderate air pollution levels throughout many areas tomorrow.",
-        ukOutlook: "Towards the end of the period there is chance warm air from the continent could increase levels of air pollution across the country"
+        ukOutlook: "Strong winds for many areas will help to keep air pollution levels low at the beginning of the period. Later on an influx of warm air from the continent may result in moderate air pollution."
     },
     high: {
         values: [7, 8, 9],
