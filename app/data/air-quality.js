@@ -1,3 +1,10 @@
+// This sets the value for air quality within the prototype
+const airQualityValues = {
+    aqValueToday: "2",
+    aqValueTomorrow: "3",
+    aqValueOutlook: "5"
+};
+
 const commonMessages = {
     low: {
         values: [1, 2, 3],
@@ -58,7 +65,7 @@ function getCommonMessage(band) {
     return commonMessages[band] || commonMessages.unknown;
 }
 
-// Function to get air quality data for today, tomorrow, and the day after tomorrow
+// Function to get air quality labelling for today, tomorrow, outlook
 function getAirQuality(aqValueToday, aqValueTomorrow, aqValueOutlook) {
     const lookup = {
         "1": { band: "low", readableBand: "low" },
@@ -73,7 +80,7 @@ function getAirQuality(aqValueToday, aqValueTomorrow, aqValueOutlook) {
         "10": { band: "veryHigh", readableBand: "very high" }
     };
 
-    // Function for getting detailed air quality information
+    // Function for getting detailed air quality information and advice
     function getDetailedInfo(aqValue) {
         const bandInfo = lookup[aqValue.toString()] || { band: "unknown", readableBand: "unknown" };
         const message = getCommonMessage(bandInfo.band);
@@ -90,14 +97,15 @@ function getAirQuality(aqValueToday, aqValueTomorrow, aqValueOutlook) {
     }
 
     return {
-        today: getDetailedInfo(aqValueToday || "2"),
-        tomorrow: getDetailedInfo(aqValueTomorrow || "3"),
-        outlook: getDetailedInfo(aqValueOutlook || "4")
+        today: getDetailedInfo(aqValueToday),
+        tomorrow: getDetailedInfo(aqValueTomorrow),
+        outlook: getDetailedInfo(aqValueOutlook)
     };
-};
+}
 
 module.exports = {
     getAirQuality,
     getCommonMessage,
-    commonMessages 
+    commonMessages,
+    airQualityValues
 };

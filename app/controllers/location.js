@@ -1,7 +1,6 @@
 const axios = require('axios');
-const { getAirQuality } = require('../data/air-quality.js');
+const airQualityModule = require('../data/air-quality.js');
 const { monitoringSites, siteTypeDescriptions, pollutantTypes } = require('../data/monitoring-sites.js');
-const airQualityData = require('../data/air-quality.js');
 const apiKey = process.env.OS_API_KEY;
 
 exports.getLocationData = async (req, res) => {
@@ -21,11 +20,9 @@ exports.getLocationData = async (req, res) => {
       return res.status(400).redirect('enter-location');
     }
 
-    const aqValueToday = "2"; 
-    const aqValueTomorrow = "3"; 
-    const aqValueOutlook = "5"; 
-
-    const airQuality = getAirQuality(aqValueToday, aqValueTomorrow, aqValueOutlook);
+    // Use imported air quality values
+    const { aqValueToday, aqValueTomorrow, aqValueOutlook } = airQualityModule.airQualityValues;
+    const airQuality = airQualityModule.getAirQuality(aqValueToday, aqValueTomorrow, aqValueOutlook);
 
     let filters = [
       'LOCAL_TYPE:City',
@@ -61,7 +58,7 @@ exports.getLocationData = async (req, res) => {
       res.render('location', {
         result: matches[0],
         airQuality: airQuality,
-        airQualityData: airQualityData.commonMessages,
+        airQualityData: airQualityModule.commonMessages,
         monitoringSites: monitoringSites,
         siteTypeDescriptions: siteTypeDescriptions,
         pollutantTypes: pollutantTypes
@@ -71,7 +68,7 @@ exports.getLocationData = async (req, res) => {
         results: matches,
         userLocation: originalUserLocation,
         airQuality: airQuality,
-        airQualityData: airQualityData.commonMessages,
+        airQualityData: airQualityModule.commonMessages,
         monitoringSites: monitoringSites,
         siteTypeDescriptions: siteTypeDescriptions,
         pollutantTypes: pollutantTypes
@@ -92,17 +89,14 @@ exports.getLocationDetails = (req, res) => {
     const locationDetails = locationData.find(item => item.GAZETTEER_ENTRY.ID === locationId);
 
     if (locationDetails) {
-      // Example: Retrieving air quality values
-      const aqValueToday = "2"; 
-      const aqValueTomorrow = "3"; 
-      const aqValueOutlook = "5"; 
-
-      const airQuality = getAirQuality(aqValueToday, aqValueTomorrow, aqValueOutlook);
+      // Use imported air quality values
+      const { aqValueToday, aqValueTomorrow, aqValueOutlook } = airQualityModule.airQualityValues;
+      const airQuality = airQualityModule.getAirQuality(aqValueToday, aqValueTomorrow, aqValueOutlook);
 
       res.render('location', {
         result: locationDetails,
         airQuality: airQuality,
-        airQualityData: airQualityData.commonMessages,
+        airQualityData: airQualityModule.commonMessages,
         monitoringSites: monitoringSites,
         siteTypeDescriptions: siteTypeDescriptions,
         pollutantTypes: pollutantTypes
@@ -115,3 +109,4 @@ exports.getLocationDetails = (req, res) => {
     res.status(500).render('error', { error: 'An error occurred while retrieving location details.' });
   }
 };
+``
