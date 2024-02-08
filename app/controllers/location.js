@@ -21,10 +21,9 @@ exports.getLocationData = async (req, res) => {
       return res.status(400).redirect('enter-location');
     }
 
-    // Example: Retrieving air quality values
-    const aqValueToday = req.body.aqValueToday || "4";
-    const aqValueTomorrow = req.body.aqValueTomorrow || "4";
-    const aqValueOutlook = req.body.aqValueOutlook || "4";
+    const aqValueToday = "2"; 
+    const aqValueTomorrow = "3"; 
+    const aqValueOutlook = "5"; 
 
     const airQuality = getAirQuality(aqValueToday, aqValueTomorrow, aqValueOutlook);
 
