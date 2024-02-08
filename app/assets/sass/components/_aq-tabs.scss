@@ -4,6 +4,7 @@
     .govuk-tabs__list {
         display: none; 
     }
+    
     .govuk-tabs__list-item {
         text-align: left;
     }
@@ -169,4 +170,11 @@ h3 strong {
     //         @include defra-visually-hidden();
     //     }
     // }
+}
+
+.defra-aq-tabs--forecast {
+    border-top:1px solid $govuk-border-colour;
+    @include mq ($from: tablet) {
+        border: 0;
+    }
 }

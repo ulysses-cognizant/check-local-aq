@@ -2,7 +2,7 @@
 <h2 class="govuk-heading-m govuk-!-font-size-27 govuk-!-margin-bottom-5">Air pollution forecast</h2>
 
 {% set todayHtml %}
-<h3 class="govuk-heading-m govuk-!-margin-bottom-3">Today<strong class="daqi-tag daqi-tag--{{ airQuality.today.value }}">{{ airQuality.today.readableBand | capitalize }}</strong></h3>
+<h3 class="govuk-heading-m govuk-!-margin-top-3 govuk-!-margin-bottom-3">Today<strong class="daqi-tag daqi-tag--{{ airQuality.today.value }}">{{ airQuality.today.readableBand | capitalize }}</strong></h3>
 <p>Air pollution today in {{ result.GAZETTEER_ENTRY.NAME1 }} is {{ airQuality.today.readableBand }}.</p>
 <h4 class="govuk-heading-s govuk-!-margin-bottom-3">UK forecast</h4>
 <p>{{ airQuality.today.ukToday }}</p>
@@ -67,7 +67,7 @@
 {% endset -%}
 
 {{ aqTabs({
-classes: "defra-aq-tabs",
+classes: "defra-aq-tabs defra-aq-tabs--forecast",
   items: [
     {
       classes: "govuk-tabs__list-item--forecast",
