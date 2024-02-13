@@ -6,7 +6,7 @@ const monitoringSites = [
   {
     "site_name": "Salford Eccles",
     "site_id": "UKA00339",
-    "distance": 1.8,
+    "distance": 3.3,
     "site_type": "urban-site",
     "pollutants": [
         {
@@ -51,11 +51,50 @@ const monitoringSites = [
     }
     ]
 },
-
+{
+    "site_name": "Glazebury",
+    "site_id": "UKA00170",
+    "distance": 4.8,
+    "site_type": "rural-site",
+    "pollutants": [
+        {
+            "type": "ozone",
+            "measurement": 39.914,
+            "trend": "Rising",
+            "band": "Low",
+            "aqi": 2,
+            "low_range": "0 to 100"
+        },
+        {
+            "type": "nitrogen-dioxide",
+            "measurement": 220.436,
+            "trend": "Falling",
+            "band": "Moderate",
+            "aqi": 4,
+            "low_range": "0 to 200"
+        },
+      {
+        "type": "particulate-matter10",
+        "measurement": 8.113,
+        "trend": "Falling",
+        "band": "Low",
+        "aqi": 1,
+        "low_range": "0 to 35"
+    },
+    {
+      "type": "particulate-matter2",
+      "measurement": 37.2,
+      "trend": "Falling",
+      "band": "Moderate",
+      "aqi": 4,
+      "low_range": "0 to 35"
+  }
+    ]
+},
   {
       "site_name": "Bury Whitefield Roadside",
       "site_id": "UKA00598",
-      "distance": 3.7,
+      "distance": 5.2,
       "site_type": "traffic-site",
       "pollutants": [
           {
@@ -83,55 +122,7 @@ const monitoringSites = [
             "low_range": "0 to 35"
     }
       ]
-  },
-  {
-    "site_name": "Manchester Piccadilly",
-    "site_id": "UKA00248",
-    "distance": 4.5,
-    "site_type": "urban-site",
-    "pollutants": [
-        {
-            "type": "ozone",
-            "measurement": 39.914,
-            "trend": "Rising",
-            "band": "Low",
-            "aqi": 2,
-            "low_range": "0 to 100"
-        },
-        {
-            "type": "nitrogen-dioxide",
-            "measurement": 220.436,
-            "trend": "Falling",
-            "band": "Moderate",
-            "aqi": 4,
-            "low_range": "0 to 200"
-        },
-        {
-            "type": "sulphur-dioxide",
-            "measurement": 30.62,
-            "trend": "Steady",
-            "band": "Low",
-            "aqi": 4,
-            "low_range": "0 to 200"
-        },
-      {
-        "type": "particulate-matter10",
-        "measurement": 8.113,
-        "trend": "Falling",
-        "band": "Low",
-        "aqi": 1,
-        "low_range": "0 to 35"
-    },
-    {
-      "type": "particulate-matter2",
-      "measurement": 37.2,
-      "trend": "Falling",
-      "band": "Moderate",
-      "aqi": 4,
-      "low_range": "0 to 35"
   }
-    ]
-}
 ]
 
 // Pollutant reference data
