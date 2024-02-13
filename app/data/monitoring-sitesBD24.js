@@ -4,90 +4,58 @@
 const monitoringSites = [
   
   {
-    "site_name": "Blackpool Marton",
-    "site_id": "UKA00488",
-    "distance": 25.1,
-    "site_type": "urban-site",
+    "site_name": "Bradford Mayo Avenue",
+    "site_id": "UKA00611",
+    "distance": 8.7,
+    "site_type": "traffic-site",
     "pollutants": [
         {
-            "type": "ozone",
-            "measurement": 39.914,
+            "type": "nitrogen-dioxide",
+            "measurement": 219.436,
             "trend": "Rising",
-            "band": "Low",
-            "aqi": 2,
-            "low_range": "0 to 100"
-        },
-          {
-              "type": "nitrogen-dioxide",
-              "measurement": 150.289,
-              "trend": "Rising",
-              "band": "Low",
-              "aqi": 3,
-              "low_range": "0 to 200"
-          },
-        {
-            "type": "particulate-matter10",
-            "measurement": 7.623,
-            "trend": "Falling",
-            "band": "Low",
-            "aqi": 1,
-            "low_range": "0 to 35"
-        },
-        {
-            "type": "particulate-matter2",
-            "measurement": 41.8,
-            "trend": "Falling",
             "band": "Moderate",
             "aqi": 4,
-            "low_range": "0 to 35"
+            "low_range": "0 to 200"
         }
     ]
 },
 
   {
-      "site_name": "Preston",
-      "site_id": "UKA00408",
-      "distance": 26.4,
-      "site_type": "urban-site",
+      "site_name": "Leeds Headingley Kerbside",
+      "site_id": "UKA00527",
+      "distance": 13.8,
+      "site_type": "traffic-site",
       "pollutants": [
         {
-            "type": "ozone",
-            "measurement": 54.882,
-            "trend": "Rising",
-            "band": "Low",
-            "aqi": 2,
-            "low_range": "0 to 100"
-        },
-          {
-              "type": "nitrogen-dioxide",
-              "measurement": 270.238,
-              "trend": "Rising",
-              "band": "Moderate",
-              "aqi": 5,
-              "low_range": "0 to 200"
-          },
-        {
-            "type": "particulate-matter10",
-            "measurement": 35.7,
+            "type": "nitrogen-dioxide",
+            "measurement": 220.436,
             "trend": "Falling",
             "band": "Moderate",
             "aqi": 4,
-            "low_range": "0 to 35"
+            "low_range": "0 to 200"
         },
-        {
-            "type": "particulate-matter2",
-            "measurement": 40.3,
-            "trend": "Falling",
-            "band": "Moderate",
-            "aqi": 4,
-            "low_range": "0 to 35"
-        }
+      {
+        "type": "particulate-matter10",
+        "measurement": 8.113,
+        "trend": "Falling",
+        "band": "Low",
+        "aqi": 1,
+        "low_range": "0 to 35"
+    },
+    {
+      "type": "particulate-matter2",
+      "measurement": 37.2,
+      "trend": "Falling",
+      "band": "Moderate",
+      "aqi": 4,
+      "low_range": "0 to 35"
+  }
       ]
   },
   {
-    "site_name": "Blackburn Audley Park",
-    "site_id": "UKA01025",
-    "distance": 30.4,
+    "site_name": "Leeds Centre",
+    "site_id": "UKA00222",
+    "distance": 15.2,
     "site_type": "urban-site",
     "pollutants": [
   {
@@ -97,6 +65,22 @@ const monitoringSites = [
     "band": "Low",
     "aqi": 2,
     "low_range": "0 to 100"
+},
+  {
+      "type": "nitrogen-dioxide",
+      "measurement": 150.289,
+      "trend": "Rising",
+      "band": "Low",
+      "aqi": 3,
+      "low_range": "0 to 200"
+  },
+  {
+    "type": "sulphur-dioxide",
+    "measurement": 30.62,
+    "trend": "Steady",
+    "band": "Low",
+    "aqi": 3,
+    "low_range": "0 to 200"
 },
 {
     "type": "particulate-matter10",
