@@ -4,9 +4,9 @@
 const monitoringSites = [
   
   {
-    "site_name": "Bradford Mayo Avenue",
-    "site_id": "UKA00611",
-    "distance": 8.7,
+    "site_name": "Cambridge Roadside",
+    "site_id": "UKA00396",
+    "distance": 4.3,
     "site_type": "traffic-site",
     "pollutants": [
         {
@@ -21,11 +21,59 @@ const monitoringSites = [
 },
 
   {
-      "site_name": "Leeds Headingley Kerbside",
-      "site_id": "UKA00527",
-      "distance": 13.8,
-      "site_type": "traffic-site",
+      "site_name": "Wicken Fen",
+      "site_id": "UUKA00362",
+      "distance": 12.7,
+      "site_type": "rural-site",
       "pollutants": [
+        {
+            "type": "ozone",
+            "measurement": 39.914,
+            "trend": "Rising",
+            "band": "Low",
+            "aqi": 2,
+            "low_range": "0 to 100"
+        },
+          {
+              "type": "nitrogen-dioxide",
+              "measurement": 150.289,
+              "trend": "Rising",
+              "band": "Low",
+              "aqi": 3,
+              "low_range": "0 to 200"
+          },
+          {
+            "type": "sulphur-dioxide",
+            "measurement": 30.62,
+            "trend": "Steady",
+            "band": "Low",
+            "aqi": 4,
+            "low_range": "0 to 200"
+        },
+        {
+            "type": "particulate-matter10",
+            "measurement": 7.623,
+            "trend": "Falling",
+            "band": "Low",
+            "aqi": 1,
+            "low_range": "0 to 35"
+        },
+        {
+            "type": "particulate-matter2",
+            "measurement": 41.8,
+            "trend": "Falling",
+            "band": "Moderate",
+            "aqi": 4,
+            "low_range": "0 to 35"
+    }
+      ]
+  },
+  {
+    "site_name": "Sandy Roadside",
+    "site_id": "UKA00533",
+    "distance": 14.9,
+    "site_type": "traffic-site",
+    "pollutants": [
         {
             "type": "nitrogen-dioxide",
             "measurement": 220.436,
@@ -50,54 +98,6 @@ const monitoringSites = [
       "aqi": 4,
       "low_range": "0 to 35"
   }
-      ]
-  },
-  {
-    "site_name": "Leeds Centre",
-    "site_id": "UKA00222",
-    "distance": 15.2,
-    "site_type": "urban-site",
-    "pollutants": [
-  {
-    "type": "ozone",
-    "measurement": 39.914,
-    "trend": "Rising",
-    "band": "Low",
-    "aqi": 2,
-    "low_range": "0 to 100"
-},
-  {
-      "type": "nitrogen-dioxide",
-      "measurement": 150.289,
-      "trend": "Rising",
-      "band": "Low",
-      "aqi": 3,
-      "low_range": "0 to 200"
-  },
-  {
-    "type": "sulphur-dioxide",
-    "measurement": 30.62,
-    "trend": "Steady",
-    "band": "Low",
-    "aqi": 3,
-    "low_range": "0 to 200"
-},
-{
-    "type": "particulate-matter10",
-    "measurement": 7.623,
-    "trend": "Falling",
-    "band": "Low",
-    "aqi": 1,
-    "low_range": "0 to 35"
-},
-{
-    "type": "particulate-matter2",
-    "measurement": 41.8,
-    "trend": "Falling",
-    "band": "Moderate",
-    "aqi": 4,
-    "low_range": "0 to 35"
-}
     ]
 }
 ]
