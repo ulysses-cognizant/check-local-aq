@@ -17,23 +17,14 @@
 
   text-decoration: none;
 
-  @if $govuk-use-legacy-font {
-    // Since New Transport sits slightly higher than other common fonts.
-    // We use intentionally uneven padding to make it balanced, this can be
-    // removed using the version of the font that has a more common vertical spacing.
-    @include govuk-font($size: 16, $weight: regular, $line-height: 1.25);
-    padding-top: 4px;
-    padding-right: 6px;
-    padding-bottom: 1px;
-    padding-left: 6px;
-  } @else {
-    @include govuk-font($size: 16, $weight: regular, $line-height: 1);
-    padding-top: 4px;
-    padding-right: 6px;
-    padding-bottom: 4px;
-    padding-left: 6px;
+
+  @include govuk-font($size: 16, $weight: regular, $line-height: 1);
+  padding-top: 4px;
+  padding-right: 6px;
+  padding-bottom: 4px;
+  padding-left: 6px;
   }
-}
+
 
 .daqi-tag--round {
   border-radius: 50%; 

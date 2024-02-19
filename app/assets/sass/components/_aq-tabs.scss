@@ -24,16 +24,24 @@
 
     .govuk-tabs__panel h3 {
         position: relative;
+        margin-top: govuk-spacing(3);
+        @include mq ($from: tablet) {
+            padding: 0;
+            margin: 0;
+        }
     }
-    
+
+    .govuk-tabs__panel h3 {
+        position: relative;
+    }
 
     .govuk-tabs__panel:last-child {
         margin-bottom: govuk-spacing(8);
     }
 
     .govuk-tabs__panel--forecast {
-        margin-bottom: govuk-spacing(4);
-        padding-bottom: govuk-spacing(2);
+        margin-bottom: govuk-spacing(0);
+        padding-bottom: govuk-spacing(0);
         border-bottom:1px solid $govuk-border-colour;
         @include mq ($from: tablet) {
             margin-bottom: govuk-spacing(6);
@@ -48,8 +56,6 @@
         padding-bottom: 0;
     }
 
-
-
     .govuk-tabs__tab {
         display: block;
     }
@@ -58,10 +64,6 @@
         text-align: center;
         display: block;
     }
-
-    // > h3 {
-    //     display: none;
-    // }
 
     .govuk-tabs__title {
         display: none;
@@ -83,13 +85,13 @@
     &__label-status {
         padding-top: govuk-spacing(1);
         display:block;
-        @include govuk-font($size: 14);
+        @include govuk-font($size: 16);
         text-decoration: none;
     }
     &__label-distance {
         padding-top: govuk-spacing(1);
         display:block;
-        @include govuk-font($size: 14);
+        @include govuk-font($size: 16);
         text-decoration: none;
     }
     &__label-daqi {

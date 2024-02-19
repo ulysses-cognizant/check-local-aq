@@ -1,4 +1,5 @@
-{% extends "layouts/location-template.html" %}
+{% extends "layouts/main.html" %}
+{% set displayBacklink = true %}
 
 {% from "components/pollutant/macro.njk" import appPollutant %}
 {% from "components/toggletip/macro.njk" import toggletip %}
@@ -29,7 +30,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full-until-desktop govuk-grid-column-two-thirds-from-desktop govuk-!-margin-bottom-9">
       {% include "includes/forecast.html" %}
-      <p class="govuk-caption-s govuk-!-margin-bottom-2">Updated at 5am on {{ "today" | govukDate }}</p>
+      <p class="govuk-caption-s govuk-!-margin-bottom-2">Updated at {{ "05:00" | govukTime }} on {{ "today" | govukDate }}</p>
       
       <hr class="govuk-section-break govuk-section-break--visible govuk-!-margin-bottom-4">
       {% include "includes/daqi-index.html" %}
